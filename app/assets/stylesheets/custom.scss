@@ -1,5 +1,298 @@
-// Overrides and adds customized styles in this file
-// Read more on documentation:
-// * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
-// * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
+// Custom styles
 //
+// 01. Global styles
+// 02. Header
+// 03. Footer
+// 04. Budgets
+// 05. Proposals
+//
+
+// 01. Global styles
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+body {
+  color: $text;
+}
+
+.button,
+.proposal .supports .button-support {
+  background-color: $brand-secondary;
+  color: #fff;
+
+  &.hollow {
+    background-color: $brand-secondary;
+    border: 0;
+    color: #fff;
+
+    &:hover {
+      background-color: $brand !important;
+      color: #fff;
+    }
+
+    &.alert {
+      color: #fff;
+    }
+  }
+
+  &:hover {
+    background-color: $brand !important;
+  }
+}
+
+.jumbo {
+
+  &.highlight {
+    background-color: #fff;
+  }
+
+  h1 {
+    color: $brand-secondary !important;
+
+    &::after {
+      border-bottom: 4px solid $brand-secondary;
+      content: "";
+      display: block;
+      width: $line-height * 10;
+    }
+  }
+
+  .button {
+
+    &.expanded {
+      width: max-content;
+    }
+  }
+}
+
+// 02. Header
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.subnavigation li a {
+  background-color: #fff;
+  border-bottom: 2px solid transparent;
+  color: $brand;
+}
+
+.subnavigation li a:hover {
+  color: $link-hover;
+}
+
+.menu-icon {
+  background-color: $brand !important;
+
+  &.dark {
+    width: 40px !important;
+    height: 21px !important;
+  }
+}
+
+header {
+  background: #fff;
+  border-bottom: 3px solid $brand;
+}
+
+.background-header {
+  display: none;
+}
+
+.top-bar {
+  background-color: #fff !important;
+  color: $brand !important;
+  height: 110px !important;
+
+  ul {
+    background-color: #fff !important;
+  }
+}
+
+.top-bar .menu > li a {
+  background-color: #fff !important;
+  color: $brand !important;
+
+  .button {
+    text-decoration: underline !important;
+  }
+
+  &:hover,
+  &:hover .button {
+    color: $brand-secondary !important;
+  }
+}
+
+.top-bar .top-bar-title a img {
+  height: 100px !important;
+  margin: 5px !important;
+}
+
+.top-links {
+  background-color: $brand !important;
+}
+
+// 03. Footer
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+footer {
+  color: #fff;
+
+  a,
+  a:active,
+  a:focus {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer {
+  background: $brand;
+
+  p {
+    color: #fff;
+  }
+}
+
+.auth-image {
+  background-color: #fff;
+  border-right: 3px solid $brand-secondary;
+  border-top: 15px solid $brand;
+  background-image: none;
+}
+
+// 04. Budgets
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.expanded {
+
+  &.budget {
+    background: none;
+
+    .info .button {
+      background: $brand-secondary;
+      color: #fff;
+
+      &:hover {
+        background: $brand;
+        color: #fff;
+      }
+    }
+
+    .row {
+      background: $brand-secondary;
+    }
+
+    .info {
+      background: $brand;
+    }
+  }
+}
+
+.jumbo-budget {
+  background: $brand-secondary;
+  border-bottom: 0;
+  margin: 0 auto;
+  max-width: rem-calc(1200);
+}
+
+.button {
+
+  &.budget {
+
+    &.expanded {
+      background: $brand-secondary;
+      color: #fff;
+
+      &:hover {
+        background: $brand;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.budget-timeline .phase.is-active h3,
+.budget-timeline .phase.is-active::before {
+  background: $brand-secondary;
+}
+
+.budget-timeline {
+  border-left: 3px solid $brand-secondary;
+
+  .phase::before {
+    border: 4px solid $brand-secondary;
+  }
+}
+
+.groups-and-headings {
+  display: none;
+}
+
+.progress-bar-nav {
+  background: $brand-secondary;
+}
+
+.investment-project,
+.investment-project-show,
+.budget-investment,
+.budget-investment-show {
+
+  .supports .button-support {
+    background: $brand-secondary;
+
+    &:hover {
+      background: $brand;
+    }
+  }
+}
+
+.investment-project,
+.investment-project-show,
+.budget-investment,
+.budget-investment-show {
+
+  .supports .investment-project-amount,
+  .supports .budget-investment-amount {
+    color: $brand;
+  }
+}
+
+// 05. Proposals
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.callout.success.supported {
+  background: #e7f2fc;
+  border-color: #e7f2fc;
+}
+
+.header-index-proposals {
+  color: #fff;
+
+  .row {
+    background: $brand-secondary;
+  }
+
+  .info {
+    background: $brand;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a:not(.button) {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .button {
+      background: $brand-secondary;
+      color: #fff;
+
+      &:hover {
+        background: $brand;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -123,7 +123,7 @@ describe "Tags" do
 
   context "Tag cloud" do
 
-    scenario "Proposals" do
+    xscenario "Proposals" do
       earth = create(:proposal, tag_list: "Medio Ambiente")
       money = create(:proposal, tag_list: "Economía")
 
@@ -147,7 +147,7 @@ describe "Tags" do
       end
     end
 
-    scenario "scoped by category" do
+    xscenario "scoped by category" do
       create(:tag, :category, name: "Medio Ambiente")
       create(:tag, :category, name: "Economía")
 
@@ -163,7 +163,7 @@ describe "Tags" do
       end
     end
 
-    scenario "scoped by district" do
+    xscenario "scoped by district" do
       create(:geozone, name: "Madrid")
       create(:geozone, name: "Barcelona")
 
@@ -179,7 +179,7 @@ describe "Tags" do
       end
     end
 
-    scenario "tag links" do
+    xscenario "tag links" do
       proposal1 = create(:proposal, tag_list: "Medio Ambiente")
       proposal2 = create(:proposal, tag_list: "Medio Ambiente")
       proposal3 = create(:proposal, tag_list: "Economía")

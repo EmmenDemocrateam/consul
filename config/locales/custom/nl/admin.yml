@@ -1,0 +1,5 @@
+nl:
+  admin:
+    actions:
+      hide: Verbergen
+      hide_author: Verberg auteur
