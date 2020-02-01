@@ -4,13 +4,14 @@ describe "Proposal Notifications" do
 
   scenario "Send a notification" do
     author = create(:user)
-    create(:proposal, author: author)
+    proposal = create(:proposal, author: author)
 
     login_as(author)
-    visit root_path
+    # visit root_path
 
-    click_link "My content"
-    click_link "Dashboard"
+    # click_link "My content"
+    # click_link "Dashboard"
+    visit proposal_dashboard_path(proposal)
 
     within("#side_menu") do
       click_link "Message to users"
@@ -182,13 +183,14 @@ describe "Proposal Notifications" do
       proposal = create(:proposal, author: author)
 
       login_as(author)
-      visit root_path
+      visit proposal_dashboard_path(proposal)
+      # visit root_path
 
-      click_link "My content"
+      # click_link "My content"
 
-      within("#proposal_#{proposal.id}") do
-        click_link "Dashboard"
-      end
+      # within("#proposal_#{proposal.id}") do
+      #   click_link "Dashboard"
+      # end
 
       within("#side_menu") do
         click_link "Message to users"

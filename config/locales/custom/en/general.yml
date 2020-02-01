@@ -1,0 +1,8 @@
+en:
+  layouts:
+    footer:
+      contact: "Contact %{email}"
+      email: "communicatie@dcnd.nl"
+      emmen: Stem van Emmen
+      emmen_description: This is the online participation platform of the municipality of Emmen and is used for online experiments by the Dorspcoöperatie Nieuw-Dordrecht and the Municipal Council of Emmen.
+      questions: "Questions?"

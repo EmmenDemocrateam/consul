@@ -53,11 +53,11 @@ describe "Admin custom images" do
       click_button "Update"
     end
 
-    visit proposals_path
+    # visit proposals_path
 
-    within("#map") do
-      expect(page).to have_css("img[src*='custom_map.jpg']")
-    end
+    # within("#map") do
+    #   expect(page).to have_css("img[src*='custom_map.jpg']")
+    # end
 
     visit map_proposals_path
 

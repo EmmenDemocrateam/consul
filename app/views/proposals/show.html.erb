@@ -53,11 +53,18 @@
             <div class="sidebar-divider"></div>
             <h2><%= t("proposals.show.author") %></h2>
             <div class="show-actions-menu">
-              <%= link_to progress_proposal_dashboard_path(@proposal),
-                          class: 'button hollow expanded',
-                          id: "proposal-dashboard-#{@proposal.id}" do %>
-                <span class="icon-edit"></span>
-                <%= t("proposals.show.dashboard_proposal_link") %>
+              <% if current_editable?(@proposal) %>
+                <%= link_to edit_proposal_path(@proposal),
+                            class: "button hollow expanded" do %>
+                    <span class="icon-edit"></span>
+                    <%= t("dashboard.index.edit_proposal_link") %>
+                <% end %>
+              <% end %>
+
+              <% unless @proposal.retired? %>
+                <%= link_to t("dashboard.index.retire"),
+                            retire_form_proposal_path(@proposal),
+                            class: "button hollow expanded" %>
               <% end %>
             </div>
           <% end %>
@@ -72,8 +79,6 @@
 
             <%= render "follows/follow_button", follow: find_or_build_follow(current_user, @proposal) %>
           <% end %>
-
-          <%= render "communities/access_button", community: @proposal.community %>
         </aside>
       <% end %>
     </div>

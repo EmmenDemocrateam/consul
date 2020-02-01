@@ -402,7 +402,7 @@ describe "Emails" do
       investment.reload
 
       email = open_last_email
-      expect(email).to have_subject("Your investment project '#{investment.code}' has been marked as unfeasible")
+      expect(email).to have_subject("Your investment project '#{investment.title}' has been marked as unfeasible")
       expect(email).to deliver_to(investment.author.email)
       expect(email).to have_body_text(investment.unfeasibility_explanation)
     end
@@ -425,7 +425,7 @@ describe "Emails" do
 
       email = open_last_email
       investment = investment2
-      expect(email).to have_subject("Your investment project '#{investment.code}' has been selected")
+      expect(email).to have_subject("Your investment project '#{investment.title}' has been selected")
       expect(email).to deliver_to(investment.author.email)
     end
 
@@ -447,7 +447,7 @@ describe "Emails" do
 
       email = open_last_email
       investment = investment2
-      expect(email).to have_subject("Your investment project '#{investment.code}' has not been selected")
+      expect(email).to have_subject("Your investment project '#{investment.title}' has not been selected")
       expect(email).to deliver_to(investment.author.email)
     end
 
