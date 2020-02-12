@@ -1,0 +1,7 @@
+<% current_budget.groups.each do |group| %>
+  <% group.headings.sort_by_name.each do |heading| %>
+    <%= link_to t("budgets.index.heading_button"),
+                budget_investments_path(current_budget.id, heading_id: heading.id),
+                class: "button" %>
+  <% end %>
+<% end %>

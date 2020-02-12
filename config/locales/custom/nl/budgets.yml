@@ -1,0 +1,14 @@
+nl:
+  budgets:
+    index:
+      all_phases: Projectfases
+      map: Voorstellen geografisch weergegeven
+      heading_button: Overzicht ingeleverde voorstellen
+    investments:
+      header:
+        price: "Totaal budget:"
+      index:
+        by_heading: "Overzicht voorstellen, %{heading}"
+        unfeasible: Onhaalbare begrotingsvoorstellen
+        orders:
+          random: Overzicht

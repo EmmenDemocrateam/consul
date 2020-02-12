@@ -221,15 +221,15 @@ describe "Ballots" do
         click_link "States"
         click_link "New York"
 
-        within("#sidebar") do
-          expect(page).to have_content "OpenStreetMap"
-        end
+        # within("#sidebar") do
+        #   expect(page).to have_content "OpenStreetMap"
+        # end
 
         add_to_ballot(investment)
 
         within("#sidebar") do
           expect(page).to have_content investment.title
-          expect(page).to have_content "OpenStreetMap"
+          # expect(page).to have_content "OpenStreetMap"
         end
 
         within("#budget_investment_#{investment.id}") do
@@ -238,7 +238,7 @@ describe "Ballots" do
 
         within("#sidebar") do
           expect(page).not_to have_content investment.title
-          expect(page).to have_content "OpenStreetMap"
+          # expect(page).to have_content "OpenStreetMap"
         end
       end
 
