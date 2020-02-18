@@ -1135,7 +1135,7 @@ describe "Budget Investments" do
 
   end
 
-  scenario "Can access the community" do
+  xscenario "Can access the community" do
     Setting["feature.community"] = true
 
     investment = create(:budget_investment, heading: heading)
@@ -1145,7 +1145,7 @@ describe "Budget Investments" do
     Setting["feature.community"] = false
   end
 
-  scenario "Can not access the community" do
+  xscenario "Can not access the community" do
     Setting["feature.community"] = false
 
     investment = create(:budget_investment, heading: heading)

@@ -7,3 +7,8 @@ nl:
       emmen_description: Dit is het online participatieplatform van de gemeente Emmen en wordt voor online experimenten gebruikt door de Dorspcoöperatie Nieuw-Dordrecht en de Gemeenteraad Emmen.
       questions: "Vragen?"
       privacy: Privacy verklaring
+  shared:
+    back: Ga terug
+    edit: Idee bewerken
+    tags_cloud:
+      categories: "Thema’s"

@@ -17,6 +17,17 @@ body {
   background-color: $brand-secondary;
   color: #fff;
 
+  &.hollow {
+    background-color: $brand-secondary;
+    border: 0;
+    color: #fff;
+
+    &:hover {
+      background-color: $brand !important;
+      color: #fff;
+    }
+  }
+
   &:hover {
     background-color: $brand !important;
   }
@@ -211,4 +222,33 @@ footer {
 
 .groups-and-headings {
   display: none;
+}
+
+.progress-bar-nav {
+  background: $brand-secondary;
+}
+
+.investment-project,
+.investment-project-show,
+.budget-investment,
+.budget-investment-show {
+
+  .supports .button-support {
+    background: $brand-secondary;
+
+    &:hover {
+      background: $brand;
+    }
+  }
+}
+
+.investment-project,
+.investment-project-show,
+.budget-investment,
+.budget-investment-show {
+
+  .supports .investment-project-amount,
+  .supports .budget-investment-amount {
+    color: $brand;
+  }
 }

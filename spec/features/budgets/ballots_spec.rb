@@ -508,7 +508,7 @@ describe "Ballots" do
     visit budget_investments_path(budget, heading_id: new_york.id)
     add_to_ballot(investment)
 
-    within(".budget-heading") do
+    within("#sidebar") do
       click_link "Check and confirm my ballot"
     end
 

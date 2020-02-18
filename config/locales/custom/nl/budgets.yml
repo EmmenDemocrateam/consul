@@ -1,7 +1,7 @@
 nl:
   budgets:
     index:
-      all_phases: Projectfases
+      all_phases: Wanneer gebeurt er wat?
       map: Voorstellen geografisch weergegeven
       heading_button: Overzicht ingeleverde voorstellen
     investments:
@@ -12,3 +12,14 @@ nl:
         unfeasible: Onhaalbare begrotingsvoorstellen
         orders:
           random: Overzicht
+      show:
+        author: Auteur
+        comments_tab: Reacties
+        price_explanation: Toelichting van de kosten
+        votes: Stemmen
+        see_price_explanation: Toelichting van de kosten
+    phase:
+      accepting: Deel uw idee
+      reviewing: Wij kijken de ideeën na
+      balloting: Stem op een goed idee
+      finished: De uitslag
