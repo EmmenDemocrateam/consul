@@ -12,3 +12,15 @@ nl:
     edit: Idee bewerken
     tags_cloud:
       categories: "Thema’s"
+  proposals:
+    proposal:
+      supports:
+        zero: Geen stemmen
+        one: 1 stem
+        other: "%{count} stemmen"
+  votes:
+    supports: Stemmen
+  dashboard:
+    index:
+      edit_proposal_link: Idee bewerken
+      retire: Verwijderen
