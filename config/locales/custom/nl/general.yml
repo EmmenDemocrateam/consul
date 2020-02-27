@@ -16,6 +16,8 @@ nl:
     index:
       start_proposal: Voorstel indienen
     proposal:
+      share:
+        view_proposal: Bekijk voorstel
       supports:
         zero: Geen stemmen
         one: 1 stem
