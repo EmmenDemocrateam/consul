@@ -28,6 +28,10 @@ body {
       background-color: $brand !important;
       color: #fff;
     }
+
+    &.alert {
+      color: #fff;
+    }
   }
 
   &:hover {
@@ -261,4 +265,31 @@ footer {
 .callout.success.supported {
   background: #e7f2fc;
   border-color: #e7f2fc;
+}
+
+.header-index-proposals {
+  color: #fff;
+
+  .row {
+    background: $brand-secondary;
+  }
+
+  .info {
+    background: $brand;
+
+    a:not(.button) {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+
+  .info .button {
+    background: $brand-secondary;
+    color: #fff;
+
+    &:hover {
+      background: $brand;
+      color: #fff;
+    }
+  }
 }

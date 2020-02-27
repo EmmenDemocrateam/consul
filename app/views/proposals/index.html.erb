@@ -42,7 +42,7 @@
       </div>
     </div>
   <% else %>
-    <%= render "shared/section_header", i18n_namespace: "proposals.index.section_header", image: "proposals" %>
+    <%= render "custom/proposals/section_header" %>
   <% end %>
 
   <% if show_recommended_proposals? %>
@@ -118,14 +118,5 @@
         <% end %>
       </div>
     </div>
-
-    <div class="small-12 medium-3 column">
-      <aside class="margin-bottom">
-        <%= link_to t("proposals.index.start_proposal"),
-                    new_proposal_path,
-                    class: "button expanded" %>
-      </aside>
-    </div>
-
   </div>
 </main>

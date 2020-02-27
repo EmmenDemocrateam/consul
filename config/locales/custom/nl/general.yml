@@ -13,6 +13,8 @@ nl:
     tags_cloud:
       categories: "Thema’s"
   proposals:
+    index:
+      start_proposal: Voorstel indienen
     proposal:
       supports:
         zero: Geen stemmen
