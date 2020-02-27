@@ -276,20 +276,23 @@ footer {
 
   .info {
     background: $brand;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     a:not(.button) {
       color: #fff;
       text-decoration: underline;
     }
-  }
 
-  .info .button {
-    background: $brand-secondary;
-    color: #fff;
-
-    &:hover {
-      background: $brand;
+    .button {
+      background: $brand-secondary;
       color: #fff;
+
+      &:hover {
+        background: $brand;
+        color: #fff;
+      }
     }
   }
 }
