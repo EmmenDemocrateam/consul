@@ -75,15 +75,26 @@ App.Map =
     openMarkerPopup = (e) ->
       marker = e.target
 
-      $.ajax "/investments/#{marker.options["id"]}/json_data",
-        type: "GET"
-        dataType: "json"
-        success: (data) ->
-          e.target.bindPopup(getPopupContent(data)).openPopup()
+      if marker.options["type"] == "investment"
+        $.ajax "/investments/#{marker.options["id"]}/json_data",
+          type: "GET"
+          dataType: "json"
+          success: (data) ->
+            e.target.bindPopup(getPopupContent(data)).openPopup()
+      else
+        if marker.options["type"] == "proposal"
+          $.ajax "/proposals/#{marker.options["id"]}/json_data",
+          type: "GET"
+          dataType: "json"
+          success: (data) ->
+            e.target.bindPopup(getPopupContent(data)).openPopup()
 
     getPopupContent = (data) ->
-      content = "<a href='/budgets/#{data["budget_id"]}/investments/#{data["investment_id"]}'>#{data["investment_title"]}</a>"
-      return content
+      if data["investment_id"]
+        return "<a href='/budgets/#{data["budget_id"]}/investments/#{data["investment_id"]}'>#{data["investment_title"]}</a>"
+      else
+        if data["proposal_id"]
+          return "<a href='/proposals/#{data["proposal_id"]}'>#{data["proposal_title"]}</a>"
 
     mapCenterLatLng  = new (L.LatLng)(mapCenterLatitude, mapCenterLongitude)
     map              = L.map(element.id).setView(mapCenterLatLng, zoom)
@@ -101,7 +112,13 @@ App.Map =
       for i in addMarkerInvestments
         if App.Map.validCoordinates(i)
           marker = createMarker(i.lat, i.long)
-          marker.options["id"] = i.investment_id
+          if i.investment_id
+            marker.options["id"] = i.investment_id
+            marker.options["type"] = "investment"
+          else
+            if i.proposal_id
+              marker.options["id"] = i.proposal_id
+              marker.options["type"] = "proposal"
 
           marker.on "click", openMarkerPopup
 

@@ -3,11 +3,12 @@ class ProposalsController < ApplicationController
   include CommentableActions
   include FlagActions
   include ImageAttributes
+  include CustomProposalsHelper
 
   before_action :parse_tag_filter, only: :index
   before_action :load_categories, only: [:index, :new, :create, :edit, :map, :summary]
   before_action :load_geozones, only: [:edit, :map, :summary]
-  before_action :authenticate_user!, except: [:index, :show, :map, :summary]
+  before_action :authenticate_user!, except: [:index, :show, :map, :summary, :json_data]
   before_action :destroy_map_location_association, only: :update
   before_action :set_view, only: :index
   before_action :proposals_recommendations, only: :index, if: :current_user
@@ -19,9 +20,11 @@ class ProposalsController < ApplicationController
   has_orders ->(c) { Proposal.proposals_orders(c.current_user) }, only: :index
   has_orders %w[most_voted newest oldest], only: :show
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: :json_data
   helper_method :resource_model, :resource_name
   respond_to :html, :js
+
+  skip_authorization_check only: :json_data
 
   def show
     super
@@ -54,6 +57,7 @@ class ProposalsController < ApplicationController
     load_selected
     load_featured
     remove_archived_from_order_links
+    load_map_locations
   end
 
   def vote
@@ -93,6 +97,18 @@ class ProposalsController < ApplicationController
   def publish
     @proposal.publish
     redirect_to share_proposal_path(@proposal), notice: t("proposals.notice.published")
+  end
+
+  def json_data
+    proposal =  Proposal.find(params[:id])
+    data = {
+      proposal_id: proposal.id,
+      proposal_title: proposal.title
+    }.to_json
+
+    respond_to do |format|
+      format.json { render json: data }
+    end
   end
 
   private
@@ -161,6 +177,10 @@ class ProposalsController < ApplicationController
           @resources = @resources.where("proposals.id NOT IN (?)", @featured_proposals.map(&:id))
         end
       end
+    end
+
+    def load_map_locations
+      @proposals_coordinates = proposals_map_locations
     end
 
     def remove_archived_from_order_links
