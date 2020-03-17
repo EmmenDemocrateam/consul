@@ -266,13 +266,13 @@ describe "Budgets" do
     expect(page).not_to have_content "March 11, 2018 - March 20, 2018"
 
     expect(page).to have_content "This is the summary for accepting phase"
-    expect(page).to have_content "January 01, 2018 - January 20, 2018"
+    expect(page).to have_content "January 01, 2018 - January 21, 2018"
     expect(page).to have_content "This is the summary for selecting phase"
-    expect(page).to have_content "January 21, 2018 - March 01, 2018"
+    expect(page).to have_content "January 21, 2018 - March 02, 2018"
     expect(page).to have_content "This is the summary for balloting phase"
-    expect(page).to have_content "March 02, 2018 - March 20, 2018"
+    expect(page).to have_content "March 02, 2018 - March 21, 2018"
     expect(page).to have_content "This is the summary for finished phase"
-    expect(page).to have_content "March 21, 2018 - March 29, 2018"
+    expect(page).to have_content "March 21, 2018 - March 30, 2018"
 
     expect(page).to have_css(".phase.is-active", count: 1)
   end

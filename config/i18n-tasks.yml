@@ -218,6 +218,11 @@ ignore_unused:
   - proposals.proposal.supports_necessary
   - proposals.proposal.total_percent
   - proposals.show.dashboard_proposal_link
+  - proposals.form.map_location
+  - proposals.form.map_location_instructions
+  - proposals.form.map_remove_marker
+  - proposals.share.dashboard
+  - proposals.share.improve_it
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:
