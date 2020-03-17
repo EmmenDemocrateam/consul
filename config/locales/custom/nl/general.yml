@@ -28,3 +28,19 @@ nl:
     index:
       edit_proposal_link: Idee bewerken
       retire: Verwijderen
+  form:
+    accept_terms: Ik accepteer de %{policy} en de %{conditions}.
+    policy: Privacyverklaring
+  account:
+    show:
+      title: Mijn account
+      save_changes_submit: Wijzigingen opslaan
+      user_permission_info: Met uw account kunt u,
+      user_permission_debates: Mee doen met discussies
+  users:
+    show:
+      proposals_status: Status
+    proposals:
+      actions: Acties
+      draft: Concept
+      published: Publiceren
