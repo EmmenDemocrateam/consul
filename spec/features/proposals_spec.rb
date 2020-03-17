@@ -1608,13 +1608,13 @@ describe "Proposals" do
                   "Save changes",
                   "Proposal updated successfully"
 
-  it_behaves_like "mappable",
-                  "proposal",
-                  "proposal",
-                  "new_proposal_path",
-                  "edit_proposal_path",
-                  "proposal_path",
-                  { }
+  # it_behaves_like "mappable",
+  #                 "proposal",
+  #                 "proposal",
+  #                 "new_proposal_path",
+  #                 "edit_proposal_path",
+  #                 "proposal_path",
+  #                 { }
 
   scenario "Erased author" do
     user = create(:user)
