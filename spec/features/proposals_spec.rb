@@ -116,12 +116,6 @@ describe "Proposals" do
         expect(page).to have_css("img[alt='#{proposal_with_image.image.title}']")
       end
     end
-
-    scenario "Index should show a map", :js do
-      visit proposals_path
-
-      expect(page).to have_css(".map_location")
-    end
   end
 
   scenario "Show" do
