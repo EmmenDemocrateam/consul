@@ -1,0 +1,23 @@
+nl:
+  mailers:
+    email_verification:
+      subject: "Bevestig uw email"
+      title: "Bevestig uw account met de volgende link"
+    user_invite:
+      subject: "Uitnodiging voor %{org_name}"
+    budget_investment_created:
+      subject: "Bedankt voor het deelnemen aan de Burgerbegroting"
+    budget_investment_selected:
+      subject: "Uw budget voorstel '%{code}' is geselecteerd"
+    budget_investment_unselected:
+      subject: "Uw project '%{code}' is niet geselecteerd"
+    budget_investment_unfeasible:
+      subject: "Uw investeringsproject '%{code}' is als onhaalbaar gemarkeerd"
+    direct_message_for_sender:
+      subject: "U heeft een nieuw prive bericht verstuurd"
+    direct_message_for_receiver:
+      subject: "U heeft een nieuw prive bericht ontvangen"
+    reply:
+      subject: "Iemand heeft gereageerd op uw bericht"
+    comment:
+      subject: "Iemand heeft gereageerd op uw %{commentable}"
