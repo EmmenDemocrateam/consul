@@ -1,0 +1,6 @@
+nl:
+  devise_views:
+    users:
+      registrations:
+        success:
+          title: "Account aangemaakt"
