@@ -123,7 +123,7 @@ describe "System Emails" do
 
       visit admin_system_email_view_path("budget_investment_selected")
 
-      expect(page).to have_content "Your investment project '#{investment.code}' has been selected"
+      expect(page).to have_content "Your investment project '#{investment.title}' has been selected"
       expect(page).to have_content "Start to get votes, share your investment project"
 
       share_url = budget_investment_url(budget, investment, anchor: "social-share")
@@ -135,7 +135,7 @@ describe "System Emails" do
 
       visit admin_system_email_view_path("budget_investment_unfeasible")
 
-      expect(page).to have_content "Your investment project '#{investment.code}' "
+      expect(page).to have_content "Your investment project '#{investment.title}' "
       expect(page).to have_content "has been marked as unfeasible"
     end
 
@@ -144,7 +144,7 @@ describe "System Emails" do
 
       visit admin_system_email_view_path("budget_investment_unselected")
 
-      expect(page).to have_content "Your investment project '#{investment.code}' "
+      expect(page).to have_content "Your investment project '#{investment.title}' "
       expect(page).to have_content "has not been selected"
       expect(page).to have_content "Thank you again for participating."
     end
