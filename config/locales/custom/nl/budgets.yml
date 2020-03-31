@@ -12,6 +12,8 @@ nl:
         unfeasible: Onhaalbare begrotingsvoorstellen
         orders:
           random: Overzicht
+        sidebar:
+          not_logged_in: "Om een nieuw voorstel te doen, moet u zich %{sign_in} of %{sign_up}."
       show:
         author: Auteur
         comments_tab: Reacties
