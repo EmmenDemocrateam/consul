@@ -500,7 +500,7 @@ describe "Users" do
         expect(page).to have_content("Dashboard not available for retired proposals")
       end
 
-      scenario "Published proposals have a link to the dashboard" do
+      xscenario "Published proposals have a link to the dashboard" do
         proposal = create(:proposal, :published, author: @user)
         login_as @user
 

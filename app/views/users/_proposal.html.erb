@@ -1,5 +1,5 @@
 <tr id="proposal_<%= proposal.id %>">
-  <td class="small-7">
+  <td class="small-6">
     <strong>
       <%= link_to proposal.title, proposal, proposal.retired? ? { class: "retired" } : {} %>
     </strong>
@@ -18,10 +18,15 @@
 
   <% if proposal.retired? %>
     <td class="help-text"><%= t("users.proposals.retired_help_text") %></td>
-  <% elsif can?(:dashboard, proposal) %>
-    <td>
-      <%= link_to t("proposals.show.dashboard_proposal_link"),
-                  progress_proposal_dashboard_path(proposal), class: "button hollow expanded" %>
+  <% elsif current_editable?(proposal) %>
+    <td class="text-right">
+      <%= link_to t("dashboard.index.edit_proposal_link"),
+                            edit_proposal_path(proposal), class: "button hollow" %>
+
+      <% unless proposal.retired? %>
+        <%= link_to t("dashboard.index.retire"), retire_form_proposal_path(proposal),
+                    class: "button hollow" %>
+      <% end %>
     </td>
   <% else %>
     <td class="text-center">

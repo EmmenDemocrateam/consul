@@ -1,0 +1,73 @@
+nl:
+  mailers:
+    email_verification:
+      subject: "Bevestig uw email"
+      title: "Bevestig uw account met de volgende link"
+      click_here_to_verify: "deze link"
+      instructions_2_html: "Met deze mail wordt uw account geverifieerd <b>%{document_type} %{document_number}</b>. Als u dit niet heeft aangevraagd, dan kunt u deze mail negeren."
+      instructions_html: "Om de verificatie van uw account te voltooien klikt u %{verification_link}."
+      thanks: "Dank u."
+    user_invite:
+      subject: "Uitnodiging voor %{org_name}"
+      ignore: "Als u, u niet heeft geregistreerd, kunt u deze mail negeren."
+      text: "Dank u voor uw interesse om toe te treden tot %{org}! In een paar seconden kunt u deelnemen, vul het onderstaande formulier in:"
+      thanks: "Heel erg bedankt."
+      title: "Welcome to %{org}"
+      button: "Voltooi registratie"
+    budget_investment_created:
+      subject: "Bedankt voor het deelnemen aan de Burgerbegroting"
+      title: "Bedankt voor uw idee!"
+      intro_html: "Beste %{author},"
+      text_html: "Bedankt voor uw idee <strong>%{investment}</strong> voor de %{budget}."
+      follow_html: "We houden u op de hoogte over het vervolg en u kunt de fases ook lezen op <strong>%{link}</strong>."
+      follow_link: "Burgerbegroting Nieuw-Dordrecht"
+      sincerely: "Met vriendelijke groet,"
+      share: "Deel uw idee."
+    budget_investment_selected:
+      subject: "Uw budget voorstel '%{code}' is geselecteerd"
+      hi: "Beste,"
+      share: "Uw idee is geselecteerd om mee te doen met de stem ronde voor de burgerbegroting. Begin met het verwerven van stemmen; deel uw project op sociale netwerken, bijvoorbeeld."
+      share_button: "Deel uw project"
+      thanks: "Bedankt voor uw deelname."
+      sincerely: "Met vriendelijke groet"
+    budget_investment_unselected:
+      subject: "Uw project '%{code}' is niet geselecteerd"
+      hi: "Beste,"
+      thanks: "Helaas is uw idee niet geselecteerd om mee te doen aan de stem ronde. Er wordt nog contact met u opgenomen over de reden van dit besluit. Dank u nogmaals voor uw deelname."
+      sincerely: "Met vriendelijke groet"
+    budget_investment_unfeasible:
+      subject: "Uw investeringsproject '%{code}' is als onhaalbaar gemarkeerd"
+      hi: "Beste,"
+      new_html: "Uw idee is helaas bevonden als onhaalbaar binnen de mogelijkheden van de dorpcoörperatie. Wij nemen contact met u op over de reden van dit besluit."
+      new_href: "nieuw idee"
+      sincerely: "Met vriendelijke groet"
+      sorry: "Nogmaals bedankt voor uw deelname."
+    direct_message_for_sender:
+      subject: "U heeft een nieuw prive bericht verstuurd"
+      title_html: "Je hebt een nieuw privébericht gestuurd naar <strong>%{receiver}</strong> met de inhoud:"
+    direct_message_for_receiver:
+      subject: "U heeft een nieuw prive bericht ontvangen"
+      reply: "Reageer op %{sender}"
+      unsubscribe: "Als u geen directe boodschappen wilt ontvangen, kijk dan bij %{account} en haal het vinkje weg bij 'ontvangen e-mails over directe berichten'."
+      unsubscribe_account: "Mijn account"
+    reply:
+      subject: "Iemand heeft gereageerd op uw bericht"
+      hi: "Beste"
+      new_reply_by_html: "Er is een nieuwe reactie van <strong>%{commenter}</strong> op u bericht op"
+      subject: "Iemand heeft gereageerd op uw bericht"
+      title: "Nieuwe reactie op uw bericht"
+    comment:
+      hi: "Beste"
+      new_comment_by_html: "Er is een nieuwe reactie van <strong>%{commenter}</strong>"
+      subject: "Iemand heeft gereageerd op uw %{commentable}"
+      title: Nieuwe reactie
+    no_reply: Dit bericht is verzonden vanaf een e-mailadres waar u niet op kan reageren.
+    config:
+      manage_email_subscriptions: Wilt u deze mails niet meer ontvangen? Dan kunt u uw instelling hier veranderen
+    proposal_notification_digest:
+      info: "Dit zijn nieuwe notificaties gerelateerd aan voorstellen die je hebt gesteund in %{org_name}."
+      title: "Notificaties in %{org_name}"
+      share: "Voorstel delen"
+      comment: "Reageren op het voorstel"
+      unsubscribe: "Als je geen notificaties van voorstellen wilt ontvangen, ga je naar %{account} en verwijder je het vinkje bij 'Een samenvatting van notificaties ontvangen'."
+      unsubscribe_account: "Mijn account"

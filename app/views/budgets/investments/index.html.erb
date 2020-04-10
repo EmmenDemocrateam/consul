@@ -38,8 +38,15 @@
   <% end %>
 
   <div class="row">
-    <div id="budget-investments" class="budget-investments-list small-12 medium-9 column">
+    <% unless unfeasible_or_unselected_filter %>
+      <% if @map_location&.available? %>
+        <div class="margin-bottom">
+          <%= render "budgets/investments/map" %>
+        </div>
+      <% end %>
+    <% end %>
 
+    <div id="budget-investments" class="budget-investments-list small-12 medium-9 column">
       <% if @current_filter == "unfeasible" %>
         <div class="small-12 margin-bottom">
           <h2><%= t("budgets.investments.index.unfeasible") %>: <%= @heading.name %></h2>

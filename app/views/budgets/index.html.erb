@@ -58,6 +58,8 @@
                       budget_results_path(current_budget, heading_id: current_budget.headings.first),
                       class: "button margin-top expanded" %>
         <% end %>
+
+        <%= render "custom/budgets/heading_button" %>
       </div>
     </div>
   </div>
@@ -104,8 +106,13 @@
               </li>
             <% end %>
             <li>
-              <%= link_to budget_path(current_budget, filter: "unfeasible") do %>
-                <small><%= t("budgets.index.unfeasible_investment_proyects") %></small>
+              <% current_budget.groups.each do |group| %>
+                <% group.headings.sort_by_name.each do |heading| %>
+                  <%= link_to budget_investments_path(current_budget.id, heading_id: heading.id,
+                              filter: "unfeasible") do %>
+                    <small><%= t("budgets.index.unfeasible_investment_proyects") %></small>
+                  <% end %>
+                <% end %>
               <% end %>
             </li>
             <% if show_links %>

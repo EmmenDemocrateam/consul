@@ -15,13 +15,14 @@ module Notifications
 
   def create_proposal_notification(proposal)
     login_as(proposal.author)
-    visit root_path
+    visit proposal_dashboard_path(proposal)
+    # visit root_path
 
-    click_link "My content"
+    # click_link "My content"
 
-    within("#proposal_#{proposal.id}") do
-      click_link "Dashboard"
-    end
+    # within("#proposal_#{proposal.id}") do
+    #   click_link "Dashboard"
+    # end
 
     within("#side_menu") do
       click_link "Message to users"
