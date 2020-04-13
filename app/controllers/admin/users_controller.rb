@@ -4,6 +4,10 @@ class Admin::UsersController < Admin::BaseController
   def index
     @users = User.by_username_email_or_document_number(params[:search]) if params[:search]
     @users = @users.page(params[:page])
+
+    @users_active = User.active.by_username_email_or_document_number(params[:search]) if params[:search]
+    @users_active = @users.active.page(params[:page])
+
     respond_to do |format|
       format.html
       format.js
