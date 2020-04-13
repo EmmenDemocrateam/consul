@@ -20,6 +20,8 @@ shared_examples "nested imageable" do |imageable_factory_name, path,
     end
 
     imageable.update(author: user) if imageable.respond_to?(:author)
+
+    visit root_path(cookies_accepted: true)
   end
 
   after do

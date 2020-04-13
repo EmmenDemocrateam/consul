@@ -3,6 +3,10 @@ shared_examples "notifiable in-app" do |described_class|
   let(:author) { create(:user, :verified) }
   let!(:notifiable) { create(model_name(described_class), author: author) }
 
+  before do
+    visit root_path(cookies_accepted: true)
+  end
+
   scenario "Notification icon is shown" do
     notification = create(:notification, notifiable: notifiable, user: author)
 

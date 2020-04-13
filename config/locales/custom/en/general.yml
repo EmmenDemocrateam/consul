@@ -6,3 +6,7 @@ en:
       emmen: Stem van Emmen
       emmen_description: This is the online participation platform of the municipality of Emmen and is used for online experiments by the Dorspcoöperatie Nieuw-Dordrecht and the Municipal Council of Emmen.
       questions: "Questions?"
+  cookies:
+    message: "Your experience on this website was improving with using cookies"
+    accept: "Accept cookies"
+    more_info: "More information"

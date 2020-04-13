@@ -5,6 +5,10 @@ shared_examples "relationable" do |relationable_model_name|
   let(:related2) { create([:proposal, :debate, :budget_investment].sample) }
   let(:user) { create(:user) }
 
+  before do
+    visit root_path(cookies_accepted: true)
+  end
+
   scenario "related contents are listed" do
     related_content = create(:related_content, parent_relationable: relationable, child_relationable: related1, author: build(:user))
 

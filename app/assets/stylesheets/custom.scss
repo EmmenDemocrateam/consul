@@ -64,6 +64,42 @@ body {
   }
 }
 
+.cookies-message {
+  background: #e3e2e3;
+  bottom: 0;
+  color: $text;
+  padding: $line-height;
+  padding-bottom: $line-height / 2;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+
+  p {
+    font-size: $small-font-size;
+    padding-top: $line-height / 2;
+
+    @include breakpoint(large) {
+      display: inline-block;
+    }
+  }
+
+  .button {
+    background: #f0d42f;
+    color: #000;
+    pointer-events: auto;
+
+    @include breakpoint(large) {
+      float: right;
+      margin-left: $line-height / 2;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
 // 02. Header
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
