@@ -64,6 +64,38 @@ body {
   }
 }
 
+.cookies-message {
+  background: #e3e2e3;
+  bottom: 0;
+  color: $text;
+  padding: $line-height;
+  padding-bottom: $line-height / 2;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+
+  p {
+    font-size: $small-font-size;
+    padding-top: $line-height / 2;
+
+    @include breakpoint(large) {
+      display: inline-block;
+    }
+  }
+
+  .button {
+    background: $brand-secondary;
+    color: #fff;
+    pointer-events: auto;
+
+    @include breakpoint(large) {
+      float: right;
+      margin-left: $line-height / 2;
+    }
+  }
+}
+
 // 02. Header
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
