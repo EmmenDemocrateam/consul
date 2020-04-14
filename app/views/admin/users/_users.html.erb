@@ -1,5 +1,5 @@
-<% if @users.any? %>
-  <h3 class="margin"><%= page_entries_info @users %></h3>
+<% if @active_users.any? %>
+  <h3 class="margin"><%= page_entries_info @active_users %></h3>
 
   <table>
     <thead>
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @users.each do |user| %>
+      <% @active_users.each do |user| %>
         <tr>
           <td><%= link_to user.name, user_path(user), target: "_blank" %></td>
           <td><%= user.email %></td>
@@ -24,7 +24,7 @@
     </tbody>
   </table>
 
-  <%= paginate @users %>
+  <%= paginate @active_users %>
 <% else %>
   <div class="callout primary">
     <%= t("admin.users.index.no_users") %>
