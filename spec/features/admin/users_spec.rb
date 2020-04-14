@@ -21,6 +21,18 @@ describe "Admin users" do
     expect(current_path).to eq(user_path(@user))
   end
 
+  scenario "Do not show erased users" do
+    erased_user = create(:user, username: "Erased")
+    erased_user.erase
+
+    expect(page).not_to have_link user_path(erased_user)
+
+    fill_in :search, with: "Erased"
+    click_button "Search"
+
+    expect(page).to have_content "There are no users."
+  end
+
   scenario "Search" do
     fill_in :search, with: "Luis"
     click_button "Search"
