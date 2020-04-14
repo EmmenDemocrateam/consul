@@ -44,3 +44,7 @@ nl:
       actions: Acties
       draft: Concept
       published: Publiceren
+  cookies:
+    message: "Uw ervaring op deze website zat verbeteren na het toelaten van cookies"
+    accept: "Cookies toestaan"
+    more_info: "Meer informatie"

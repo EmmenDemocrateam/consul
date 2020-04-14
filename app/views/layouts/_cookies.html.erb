@@ -1,0 +1,7 @@
+<% unless session[:cookies_accepted] %>
+  <div id="cookies_message" class="cookies-message">
+    <p><strong><%= t("cookies.message") %></strong></p>
+    <%= link_to t("cookies.more_info"), page_path("cookies"), class: "button", target: "_blank" %>
+    <%= link_to t("cookies.accept"), root_path(cookies_accepted: true), class: "button" %>
+  </div>
+<% end %>
