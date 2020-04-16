@@ -4,3 +4,4 @@ nl:
       registrations:
         success:
           title: "Account aangemaakt"
+          instructions_2_html: "De email kan ook in uw \"ongewenste mail\" map terecht komen, controleer deze map als u de mail niet kan vinden in uw inbox.<br><br>Na bevestiging kunt u deelnemen."
