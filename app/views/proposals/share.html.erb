@@ -21,12 +21,12 @@
           <%= t("proposals.proposal.share.edit") %>
         </p>
 
-        <%= render partial: "shared/social_share", locals: {
+        <%= render "shared/social_share",
           title: @proposal.title,
           url: proposal_url(@proposal),
           description: @proposal.summary,
           mobile: @proposal.title
-        } %>
+        %>
 
         <div class="small-12 medium-6 margin">
           <%= link_to t("proposals.proposal.share.view_proposal"), proposal_path(@proposal),

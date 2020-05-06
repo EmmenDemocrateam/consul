@@ -1,4 +1,3 @@
-# coding: utf-8
 require "rails_helper"
 
 describe "Proposal ballots" do
@@ -26,6 +25,4 @@ describe "Proposal ballots" do
       end
     end
   end
-
 end
-
