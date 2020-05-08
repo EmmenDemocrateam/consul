@@ -81,7 +81,7 @@ describe "Proposals" do
       end
     end
 
-    scenario "Index view mode is not shown with selected filter" do
+    xscenario "Index view mode is not shown with selected filter" do
       visit proposals_path
 
       click_link "View selected proposals"

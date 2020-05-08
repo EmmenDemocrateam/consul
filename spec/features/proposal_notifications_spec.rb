@@ -2,7 +2,8 @@ require "rails_helper"
 
 describe "Proposal Notifications" do
   scenario "Send a notification" do
-    author = create(:user, :with_proposal)
+    author = create(:user)
+    proposal = create(:proposal, author: author)
 
     login_as(author)
     # visit root_path
