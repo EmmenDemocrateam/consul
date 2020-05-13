@@ -18,6 +18,7 @@ nl:
         author: Auteur
         comments_tab: Reacties
         price_explanation: Toelichting van de kosten
+        unfeasibility_explanation: "Uitleg van onhaalbaarheid"
         votes: Stemmen
         see_price_explanation: Toelichting van de kosten
     phase:
