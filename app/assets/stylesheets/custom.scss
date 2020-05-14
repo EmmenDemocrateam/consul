@@ -96,6 +96,17 @@ body {
   }
 }
 
+.home-page {
+
+  .jumbo {
+
+    .lead {
+      font-size: rem-calc(16);
+      line-height: $line-height * 1.5;
+    }
+  }
+}
+
 // 02. Header
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
