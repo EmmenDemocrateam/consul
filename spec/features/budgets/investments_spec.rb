@@ -1059,9 +1059,8 @@ describe "Budget Investments" do
     expect(page).to have_content(investment.description)
     expect(page).to have_content(investment.author.name)
     expect(page).to have_content(investment.heading.name)
-    within("#investment_code") do
-      expect(page).to have_content(investment.id)
-    end
+    expect(page).not_to have_css "#investment_code"
+    expect(page).not_to have_content "Investment project code: #{investment.id}"
   end
 
   context "Show Investment's price & cost explanation" do
