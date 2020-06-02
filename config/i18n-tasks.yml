@@ -223,6 +223,7 @@ ignore_unused:
   - proposals.form.map_remove_marker
   - proposals.share.dashboard
   - proposals.share.improve_it
+  - "budgets.executions.link"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:
