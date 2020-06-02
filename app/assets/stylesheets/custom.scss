@@ -291,6 +291,17 @@ footer {
   }
 }
 
+.budgets-stats .header {
+  background: $brand-secondary;
+  color: #fff;
+
+  a,
+  .back,
+  .icon-angle-left {
+    color: #fff;
+  }
+}
+
 // 05. Proposals
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
