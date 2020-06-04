@@ -73,7 +73,7 @@ body {
   pointer-events: none;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 100;
 
   p {
     font-size: $small-font-size;
@@ -92,6 +92,17 @@ body {
     @include breakpoint(large) {
       float: right;
       margin-left: $line-height / 2;
+    }
+  }
+}
+
+.home-page {
+
+  .jumbo {
+
+    .lead {
+      font-size: rem-calc(16);
+      line-height: $line-height * 1.5;
     }
   }
 }
@@ -288,6 +299,17 @@ footer {
   .supports .investment-project-amount,
   .supports .budget-investment-amount {
     color: $brand;
+  }
+}
+
+.budgets-stats .header {
+  background: $brand-secondary;
+  color: #fff;
+
+  a,
+  .back,
+  .icon-angle-left {
+    color: #fff;
   }
 }
 

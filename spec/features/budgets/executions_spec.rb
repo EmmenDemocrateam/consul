@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe "Executions" do
-
   let(:budget)  { create(:budget, :finished) }
   let(:group)   { create(:budget_group, budget: budget) }
   let(:heading) { create(:budget_heading, group: group) }
@@ -12,7 +11,7 @@ describe "Executions" do
   let!(:investment3) { create(:budget_investment, :incompatible, heading: heading) }
 
   scenario "finds budget by id or slug" do
-    budget.update(slug: "budget_slug")
+    budget.update!(slug: "budget_slug")
 
     visit budget_executions_path("budget_slug")
     within(".budgets-stats") { expect(page).to have_content budget.name }
@@ -28,6 +27,7 @@ describe "Executions" do
   end
 
   scenario "only displays investments with milestones" do
+    skip "Disabled milestones"
     create(:milestone, milestoneable: investment1)
 
     visit budget_path(budget)
@@ -44,6 +44,7 @@ describe "Executions" do
   end
 
   scenario "Do not display headings with no winning investments for selected status" do
+    skip "Disabled milestones"
     create(:milestone, milestoneable: investment1)
 
     empty_group   = create(:budget_group, budget: budget)
@@ -62,6 +63,7 @@ describe "Executions" do
   end
 
   scenario "Show message when there are no winning investments with the selected status", :js do
+    skip "Disabled milestones"
     create(:milestone_status, name: I18n.t("seeds.budgets.statuses.executed"))
 
     visit budget_path(budget)
@@ -77,10 +79,9 @@ describe "Executions" do
   end
 
   context "Images" do
-
     scenario "renders milestone image if available" do
-      milestone1 = create(:milestone, milestoneable: investment1)
-      create(:image, imageable: milestone1)
+      skip "Disabled milestones"
+      milestone1 = create(:milestone, :with_image, milestoneable: investment1)
 
       visit budget_path(budget)
 
@@ -92,6 +93,7 @@ describe "Executions" do
     end
 
     scenario "renders investment image if no milestone image is available" do
+      skip "Disabled milestones"
       create(:milestone, milestoneable: investment2)
       create(:image, imageable: investment2)
 
@@ -105,6 +107,7 @@ describe "Executions" do
     end
 
     scenario "renders default image if no milestone nor investment images are available" do
+      skip "Disabled milestones"
       create(:milestone, milestoneable: investment4)
 
       visit budget_path(budget)
@@ -117,20 +120,11 @@ describe "Executions" do
     end
 
     scenario "renders last milestone's image if investment has multiple milestones with images associated" do
-      milestone1 = create(:milestone, milestoneable: investment1,
-                                      publication_date: Date.yesterday)
-
-      milestone2 = create(:milestone, milestoneable: investment1,
-                                      publication_date: Date.yesterday)
-
-      milestone3 = create(:milestone, milestoneable: investment1,
-                                      publication_date: Date.yesterday)
-
-      milestone4 = create(:milestone, milestoneable: investment1,
-                                      publication_date: Date.yesterday)
-
-      create(:image, imageable: milestone2, title: "Image for first milestone with image")
-      create(:image, imageable: milestone3, title: "Image for second milestone with image")
+      skip "Disabled milestones"
+      create(:milestone, milestoneable: investment1)
+      create(:milestone, :with_image, image_title: "First image", milestoneable: investment1)
+      create(:milestone, :with_image, image_title: "Second image", milestoneable: investment1)
+      create(:milestone, milestoneable: investment1)
 
       visit budget_path(budget)
 
@@ -138,17 +132,16 @@ describe "Executions" do
       click_link "Milestones"
 
       expect(page).to have_content(investment1.title)
-      expect(page).to have_css("img[alt='#{milestone3.image.title}']")
+      expect(page).to have_css("img[alt='Second image']")
     end
-
   end
 
   context "Filters" do
-
     let!(:status1) { create(:milestone_status, name: "Studying the project") }
     let!(:status2) { create(:milestone_status, name: "Bidding") }
 
     scenario "Filters select with counter are shown" do
+      skip "Disabled milestones"
       create(:milestone, milestoneable: investment1,
                          publication_date: Date.yesterday,
                          status: status1)
@@ -168,6 +161,7 @@ describe "Executions" do
     end
 
     scenario "by milestone status", :js do
+      skip "Disabled milestones"
       create(:milestone, milestoneable: investment1, status: status1)
       create(:milestone, milestoneable: investment2, status: status2)
       create(:milestone_status, name: I18n.t("seeds.budgets.statuses.executing_project"))
@@ -197,6 +191,7 @@ describe "Executions" do
     end
 
     scenario "are based on latest milestone status", :js do
+      skip "Disabled milestones"
       create(:milestone, milestoneable: investment1,
                          publication_date: 1.month.ago,
                          status: status1)
@@ -217,6 +212,7 @@ describe "Executions" do
     end
 
     scenario "milestones with future dates are not shown", :js do
+      skip "Disabled milestones"
       create(:milestone, milestoneable: investment1,
                          publication_date: Date.yesterday,
                          status: status1)
@@ -235,22 +231,60 @@ describe "Executions" do
       select "Bidding (0)", from: "status"
       expect(page).not_to have_content(investment1.title)
     end
+
+    scenario "by milestone tag, only display tags for winner investments", :js do
+      skip "Disabled milestones"
+      create(:milestone, milestoneable: investment1, status: status1)
+      create(:milestone, milestoneable: investment2, status: status2)
+      create(:milestone, milestoneable: investment3, status: status2)
+      investment1.milestone_tag_list.add("tag1", "tag2")
+      investment1.save!
+      investment2.milestone_tag_list.add("tag2")
+      investment2.save!
+      investment3.milestone_tag_list.add("tag2")
+      investment3.save!
+
+      visit budget_path(budget)
+
+      click_link "See results"
+      click_link "Milestones"
+
+      expect(page).to have_content(investment1.title)
+      expect(page).to have_content(investment2.title)
+
+      select "tag2 (2)", from: "milestone_tag"
+
+      expect(page).to have_content(investment1.title)
+      expect(page).to have_content(investment2.title)
+
+      select "Studying the project (1)", from: "status"
+
+      expect(page).to have_content(investment1.title)
+      expect(page).not_to have_content(investment2.title)
+
+      select "Bidding (1)", from: "status"
+
+      expect(page).not_to have_content(investment1.title)
+      expect(page).to have_content(investment2.title)
+
+      select "tag1 (1)", from: "milestone_tag"
+
+      expect(page).not_to have_content(investment1.title)
+      expect(page).not_to have_content(investment2.title)
+
+      select "All (2)", from: "milestone_tag"
+
+      expect(page).not_to have_content(investment1.title)
+      expect(page).to have_content(investment2.title)
+    end
   end
 
   context "Heading Order" do
-
-    def create_heading_with_investment_with_milestone(group:, name:)
-      heading    = create(:budget_heading, group: group, name: name)
-      investment = create(:budget_investment, :winner, heading: heading)
-      milestone  = create(:milestone, milestoneable: investment)
-      heading
-    end
-
     scenario "Non-city headings are displayed in alphabetical order" do
       heading.destroy!
-      z_heading = create_heading_with_investment_with_milestone(group: group, name: "Zzz")
-      a_heading = create_heading_with_investment_with_milestone(group: group, name: "Aaa")
-      m_heading = create_heading_with_investment_with_milestone(group: group, name: "Mmm")
+      z_heading = create(:budget_heading, :with_investment_with_milestone, group: group, name: "Zzz")
+      a_heading = create(:budget_heading, :with_investment_with_milestone, group: group, name: "Aaa")
+      m_heading = create(:budget_heading, :with_investment_with_milestone, group: group, name: "Mmm")
 
       visit budget_executions_path(budget)
 
@@ -261,16 +295,14 @@ describe "Executions" do
   end
 
   context "No milestones" do
-
     scenario "Milestone not yet published" do
+      skip "Disabled milestones"
       status = create(:milestone_status)
-      unpublished_milestone = create(:milestone, milestoneable: investment1,
-                                     status: status, publication_date: Date.tomorrow)
+      create(:milestone, milestoneable: investment1, status: status, publication_date: Date.tomorrow)
 
       visit budget_executions_path(budget, status: status.id)
 
       expect(page).to have_content("No winner investments in this state")
     end
-
   end
 end

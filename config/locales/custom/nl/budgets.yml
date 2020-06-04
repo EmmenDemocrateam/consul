@@ -16,6 +16,9 @@ nl:
           not_logged_in: "Om een nieuw voorstel te doen, moet u zich %{sign_in} of %{sign_up}."
       show:
         author: Auteur
+        code: "Begrotingsvoorstel code: <strong>%{code}</strong>"
+        location: "Plaats: <strong>%{location}</strong>"
+        organization_name: "Voorgesteld namens: <strong>%{name}</strong>"
         comments_tab: Reacties
         price_explanation: Toelichting van de kosten
         unfeasibility_explanation: "Uitleg van onhaalbaarheid"

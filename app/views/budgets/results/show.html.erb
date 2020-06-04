@@ -45,8 +45,8 @@
   <div class="small-12 medium-9 large-10 column">
     <%= link_to t("budgets.results.show_all_link"), "#",
                 class: "js-toggle-link button hollow margin-bottom float-right-medium",
-                data: {"toggle-selector" => ".js-discarded",
-                       "toggle-text" => t("budgets.results.hide_discarded_link")} %>
+                data: { "toggle-selector" => ".js-discarded",
+                        "toggle-text" => t("budgets.results.hide_discarded_link") } %>
 
     <%= render "results_table", results_type: :compatible,
                                 title: @heading.name,
@@ -67,8 +67,10 @@
       <%= link_to budget_path(@budget, filter: "unfeasible") do %>
         <small><%= t("budgets.results.unfeasible_investment_proyects") %></small>
       <% end %><br>
-      <%= link_to budget_path(@budget, filter: "unselected") do %>
-        <small><%= t("budgets.results.not_selected_investment_proyects") %></small>
+      <% if false %>
+        <%= link_to budget_path(@budget, filter: "unselected") do %>
+          <small><%= t("budgets.results.not_selected_investment_proyects") %></small>
+        <% end %>
       <% end %>
     </p>
   </div>

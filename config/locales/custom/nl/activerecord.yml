@@ -4,3 +4,10 @@ nl:
       budget/investment:
         one: "Idee"
         other: "Idees"
+    attributes:
+      budget/investment:
+        location: "Aanvullende informatie over de locatie"
+        organization_name: "Voorgesteld namens"
+      budget/investment/translation:
+        title: "Titel"
+        description: "Omschrijving"
