@@ -5,6 +5,7 @@ describe "Homepage" do
     Setting["homepage.widgets.feeds.proposals"] = false
     Setting["homepage.widgets.feeds.debates"] = false
     Setting["homepage.widgets.feeds.processes"] = false
+    Setting["homepage.widgets.feeds.budgets"] = false
     Setting["feature.user.recommendations"] = false
 
     admin = create(:administrator).user
@@ -14,6 +15,7 @@ describe "Homepage" do
   let!(:proposals_feed)    { create(:widget_feed, kind: "proposals") }
   let!(:debates_feed)      { create(:widget_feed, kind: "debates") }
   let!(:processes_feed)    { create(:widget_feed, kind: "processes") }
+  let!(:budgets_feed)      { create(:widget_feed, kind: "budgets") }
 
   let(:user_recommendations) { Setting.find_by(key: "feature.user.recommendations") }
   let(:user)                 { create(:user) }
@@ -36,13 +38,13 @@ describe "Homepage" do
 
       within("#widget_feed_#{proposals_feed.id}") do
         select "1", from: "widget_feed_limit"
-        accept_confirm { click_button "Enable" }
+        click_button "Enable"
       end
 
       visit root_path
 
       within("#feed_proposals") do
-        expect(page).to have_content "Most active proposals"
+        expect(page).to have_content "Featured proposals"
         expect(page).to have_css(".proposal", count: 1)
       end
 
@@ -55,7 +57,7 @@ describe "Homepage" do
       visit admin_homepage_path
       within("#widget_feed_#{debates_feed.id}") do
         select "2", from: "widget_feed_limit"
-        accept_confirm { click_button "Enable" }
+        click_button "Enable"
       end
 
       visit root_path
@@ -76,18 +78,18 @@ describe "Homepage" do
 
       within("#widget_feed_#{proposals_feed.id}") do
         select "3", from: "widget_feed_limit"
-        accept_confirm { click_button "Enable" }
+        click_button "Enable"
       end
 
       within("#widget_feed_#{debates_feed.id}") do
         select "3", from: "widget_feed_limit"
-        accept_confirm { click_button "Enable" }
+        click_button "Enable"
       end
 
       visit root_path
 
       within("#feed_proposals") do
-        expect(page).to have_content "Most active proposals"
+        expect(page).to have_content "Featured proposals"
         expect(page).to have_css(".proposal", count: 3)
       end
 
@@ -96,8 +98,8 @@ describe "Homepage" do
         expect(page).to have_css(".debate", count: 3)
       end
 
-      expect(page).to have_css("#feed_proposals.medium-8")
-      expect(page).to have_css("#feed_debates.medium-4")
+      expect(page).to have_css("#feed_proposals.small-12")
+      expect(page).to have_css("#feed_debates.small-12")
     end
 
     scenario "Processes", :js do
@@ -106,13 +108,52 @@ describe "Homepage" do
       visit admin_homepage_path
       within("#widget_feed_#{processes_feed.id}") do
         select "3", from: "widget_feed_limit"
-        accept_confirm { click_button "Enable" }
+        click_button "Enable"
       end
 
       visit root_path
 
       expect(page).to have_content "Open processes"
       expect(page).to have_css(".legislation_process", count: 3)
+    end
+
+    scenario "Budgets", :js do
+      5.times { create(:budget) }
+
+      visit admin_homepage_path
+
+      within("#widget_feed_#{budgets_feed.id}") do
+        select "2", from: "widget_feed_limit"
+        click_button "Enable"
+      end
+
+      visit root_path
+
+      within("#feed_budgets") do
+        expect(page).to have_content "Participatory budgets"
+        expect(page).to have_css(".budget", count: 2)
+      end
+    end
+
+    scenario "Budget phase do not show links on phase description", :js do
+      budget = create(:budget)
+
+      visit admin_homepage_path
+
+      within("#widget_feed_#{budgets_feed.id}") do
+        select "1", from: "widget_feed_limit"
+        click_button "Enable"
+      end
+
+      budget.current_phase.update!(description: "<p>Description of the phase with a link to "\
+                                                "<a href=\"https://consul.dev\">CONSUL website</a>.</p>")
+
+      visit root_path
+
+      within("#feed_budgets") do
+        expect(page).to have_content("Description of the phase with a link to CONSUL website")
+        expect(page).not_to have_link("CONSUL website")
+      end
     end
 
     xscenario "Deactivate"
