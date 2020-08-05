@@ -1,4 +1,4 @@
-frequire "rails_helper"
+require "rails_helper"
 
 describe "Ballots" do
   let(:user)        { create(:user, :level_two) }
@@ -449,6 +449,7 @@ describe "Ballots" do
   end
 
   scenario "Back link after removing an investment from Ballot", :js do
+    skip "Check ballot button removed in custom content"
     create(:budget_investment, :selected, heading: new_york, price: 10, title: "Sully monument")
 
     login_as(user)

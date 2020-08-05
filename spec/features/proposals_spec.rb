@@ -82,6 +82,7 @@ describe "Proposals" do
     end
 
     scenario "Index view mode is not shown with selected filter" do
+      skip "Selected proposals hidden in custom content"
       create(:proposal, :selected)
 
       visit proposals_path
@@ -592,6 +593,8 @@ describe "Proposals" do
     end
 
     scenario "Index sidebar only show links with proposals" do
+      skip "Proposals list hidden in custom content"
+
       visit proposals_path
 
       within("aside") do
@@ -616,7 +619,7 @@ describe "Proposals" do
     scenario "Tags cloud sidebar only show with tags" do
       visit proposals_path
 
-      within("aside") do
+      within(".proposals-sidebar aside") do
         expect(page).not_to have_content "Trending"
       end
 
@@ -626,7 +629,7 @@ describe "Proposals" do
 
       visit proposals_path
 
-      within("aside") do
+      within(".proposals-sidebar aside") do
         expect(page).to have_content "Trending"
         expect(page).to have_link "participation"
         expect(page).to have_link "city"
