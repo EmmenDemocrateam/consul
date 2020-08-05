@@ -295,8 +295,6 @@ nl:
       privacy: "Privacyverklaring"
       contact_email: "communicatie@dcnd.nl"
       facebook: "facebook/consul"
-      emmen_description: "Dit is het online participatieplatform van de gemeente Emmen en wordt voor online experimenten gebruikt door de Dorspcoöperatie Nieuw-Dordrecht en de Gemeenteraad Emmen."
-      questions: "Vragen?"
     dashboard:
       proposal_header:
         published: "Gepubliceerd"

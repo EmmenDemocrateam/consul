@@ -36,8 +36,6 @@ en:
       facebook: "facebook/consul"
       contact_title: "Contact %{email}"
       contact_email: "communicatie@dcnd.nl"
-      emmen_description: This is the online participation platform of the municipality of Emmen and is used for online experiments by the Dorspcoöperatie Nieuw-Dordrecht and the Municipal Council of Emmen.
-      questions: "Questions?"
   debates:
     index:
       section_header:
