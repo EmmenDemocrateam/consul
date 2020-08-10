@@ -34,7 +34,19 @@ describe "Polls" do
       end
     end
 
+    scenario "Polls display summary" do
+      polls = create_list(:poll, 3, summary: "Summary of the poll")
+
+      visit polls_path
+
+      polls.each do |poll|
+        expect(page).to have_content(poll.name)
+        expect(page).to have_content(poll.summary)
+      end
+    end
+
     scenario "Polls display list of questions" do
+      skip "Questions hidden in custom content"
       poll = create(:poll, :with_image)
       question1 = create(:poll_question, :yes_no, poll: poll)
       question2 = create(:poll_question, :yes_no, poll: poll)
