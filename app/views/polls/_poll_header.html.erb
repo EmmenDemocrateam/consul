@@ -25,9 +25,11 @@
           <%= auto_link_already_sanitized_html simple_format(@poll.description) %>
         </div>
 
-        <a data-toggle="poll_description_text" class="button primary">
-          <%= t("polls.show.more_info_title") %>
-        </a>
+        <div class="text-center">
+          <a data-toggle="poll_description_text" class="button primary">
+            <%= t("polls.show.more_info_title") %>
+          </a>
+        </div>
       <% end %>
     </div>
 
