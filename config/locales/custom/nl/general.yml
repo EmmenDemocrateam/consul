@@ -8,7 +8,7 @@ nl:
       change_credentials_link: "Inloggegevens aanpassen"
       save_changes_submit: "Opslaan"
       title: "Mijn profiel"
-      user_permission_info: "Met dit profiel kun je..."
+      user_permission_info: "Met dit profiel kunt u..."
       user_permission_debates: "Deelnemen aan discussies"
       user_permission_votes: "Stemmen op ideeën"
       email_on_comment_label: "Stuur me een email als iemand op mijn voorstel of discussie reageert"
@@ -92,9 +92,9 @@ nl:
       support: "Steun"
       support_title: "Steun op dit voorstel"
       supports:
-        one: "1 steunbetuiging"
-        other: "%{count} steunbetuigingen"
-        zero: "nog geen steun"
+        one: "1 Stemmen"
+        other: "%{count} Stemmen"
+        zero: "Nog geen stemmen"
       supports_necessary: "%{number} steunbetuigingen nodig"
       retire_form:
         retired_explanation_label: "Reden"
@@ -214,7 +214,7 @@ nl:
         help: "Hulp bij peilingen"
       section_footer:
         description: "Geef je mening over specifieke onderwerpen"
-      remaining: "Je kunt nog <strong>%{days}</strong> meedoen"
+      remaining: "U kunt nog <strong>%{days}</strong> meedoen"
     show:
       cant_answer_not_logged_in: "Je moet %{signin} of je %{signup} om verder te gaan"
       cant_answer_wrong_geozone: "Deze peiling is niet actief voor jouw gebied"
@@ -334,7 +334,6 @@ nl:
         number: "3"
         title: "Deel"
         description: "Blijf betrokken bij ideeën die jij belangrijk vindt en deel ze via social media."
-        link: ""
     feed:
       budgets_description: "Burgerbegrotingen zijn processen waarbij burgers bepalen wat er met een deel van de gemeentelijke begroting gebeurt. De gemeente onderzoekt of de meest gesteunde ideeën haalbaar zijn. In de stem fase die daarop volgt beslissen de burgers welke ideeën de gemeente gaat uitvoeren."
       proposals_description: "Voorstellen die genoeg steun ontvangen gaan door naar de stem fase. Zo kunnen alle inwoners van stad bepalen hoe de gemeente eruit komt te zien."
