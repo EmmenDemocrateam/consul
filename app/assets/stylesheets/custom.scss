@@ -473,7 +473,7 @@ header {
 }
 
 .top-bar-title {
-  background: $brand;
+  background: transparent;
   margin: 0;
   position: relative;
 
@@ -483,7 +483,7 @@ header {
   }
 
   &::before {
-    background: $brand;
+    background: transparent;
     content: "";
     height: 100%;
     left: -999%;
@@ -873,6 +873,7 @@ footer {
   padding-top: $line-height * 3;
 
   .footer-title {
+    font-size: rem-calc(32);
     margin: $line-height 0;
   }
 

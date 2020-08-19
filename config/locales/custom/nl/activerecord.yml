@@ -31,9 +31,9 @@ nl:
         video_url: "Link naar video"
         retired_reason: "Reden om initiatief terug te trekken"
       proposal/translation:
-        title: "Titel initiatief"
+        title: "Titel idee"
         description: "Omschrijving"
-        summary: "Samenvatting initiatief"
+        summary: "Samenvatting idee"
         retired_explanation: "Toelichting"
       user:
         email_digest: "Ontvang een samenvatting van notificaties van initiatieven"

@@ -1948,7 +1948,7 @@ describe "Successful proposals" do
 
       visit proposals_path
 
-      within("aside") do
+      within(".header-index-proposals aside") do
         click_link "Create a proposal"
       end
 

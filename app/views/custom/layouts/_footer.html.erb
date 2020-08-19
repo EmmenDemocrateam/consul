@@ -1,15 +1,7 @@
 <footer>
   <div class="row">
-    <div class="small-12 column">
-      <h1>
-        <%= image_tag(image_path_for("logo_header.png"), alt: "") %>
-      </h1>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="small-12 medium-5 column">
-      <h2 class="footer-title"><%= t("layouts.footer.org_name") %></h2>
+      <h1 class="footer-title"><%= t("layouts.footer.org_name") %></h1>
 
       <p class="info">
         <%= sanitize(content_block("footer", I18n.locale)) %>
