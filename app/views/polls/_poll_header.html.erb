@@ -20,15 +20,9 @@
       <% end %>
 
       <% if @poll.description.present? %>
-        <div id="poll_description_text" class="hide" data-toggler="hide">
+        <div id="poll_description_text">
           <h3><%= t("polls.show.more_info_title") %></h3>
           <%= auto_link_already_sanitized_html simple_format(@poll.description) %>
-        </div>
-
-        <div class="text-center">
-          <a data-toggle="poll_description_text" class="button primary">
-            <%= t("polls.show.more_info_title") %>
-          </a>
         </div>
       <% end %>
     </div>
