@@ -80,6 +80,7 @@ nl:
     proposals:
       index:
         title: "Initiatieven"
+        supports: "Steun"
     hidden_proposals:
       index:
         filters:
