@@ -71,7 +71,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.8.2"
   gem "faker", "~> 1.8.7"
   gem "i18n-tasks", "~> 0.9.29"
-  gem "knapsack_pro", "~> 1.15.0"
+  gem "knapsack", "~> 1.18"
   gem "launchy", "~> 2.4.3"
   gem "letter_opener_web", "~> 1.3.4"
   gem "spring", "~> 2.0.1"
@@ -86,6 +86,7 @@ group :test do
   gem "email_spec", "~> 2.2.0"
   gem "rspec-rails", "~> 3.8"
   gem "selenium-webdriver", "~> 3.141"
+  gem "webdrivers", "~> 4.3.0"
 end
 
 group :development do

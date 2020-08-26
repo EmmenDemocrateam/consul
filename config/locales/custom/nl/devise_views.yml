@@ -1,7 +1,47 @@
 nl:
   devise_views:
+    menu:
+      login_items:
+        login: "Inloggen"
+        logout: "Uitloggen"
+        signup: "Aanmelden"
+    shared:
+      sign_in: "Inloggen bestaand account"
+      sign_up: "Aanmelden nieuw account"
+      not_organization: "Vertegenwoordigt u een organisatie of collectief? Meldt u dan %{link} aan."
+      not_organization_link: "hier"
+      links:
+        new_confirmation: "geen activeringsinstructies voor uw account ontvangen?"
+        login: "Inloggen"
+    organizations:
+      registrations:
+        new:
+          organization_name_label: "Naam van organisatie of collectief"
+          responsible_name_note: "Dit is de persoon die namens de vereniging of het collectief initiatieven indient"
+    sessions:
+      new:
+        submit: "Inloggen"
+        title: "Inloggen"
     users:
       registrations:
+        new:
+          title: "Aanmelden"
+          organization_signup: "Vertegenwoordigt u een organisatie of collectief? Meldt u dan %{signup_link} aan."
+          organization_signup_link: "hier"
+          username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"
+          terms: "Ik ben deelnemer aan visievorming over bereikbaarheid in Zuidoost Drenthe en ik accepteer de %{terms}."
+          terms_link: "gebruikersvoorwaarden"
+          terms_title: "Ik ben deelnemer aan visievorming over bereikbaarheid in Zuidoost Drenthe en ik accepteer de gebruikersvoorwaarden"
+          submit: "Aanmelden"
+          username_label: "Gebruikersnaam"
+          username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"
         success:
           title: "Account aangemaakt"
-          instructions_2_html: "De email kan ook in uw \"ongewenste mail\" map terecht komen, controleer deze map als u de mail niet kan vinden in uw inbox.<br><br>Na bevestiging kunt u deelnemen."
+          instructions_1: "Bekijk je mailbox - we hebben een mail gestuurd met een link om je e-mailadres te verifiëren."
+          instructions_2: "Wanneer je dit hebt geverifieerd, kun je beginnen met participeren."
+          thank_you: "Bedankt voor het invullen van je gegevens. Om je aanmelding te voltooien moet je je e-mailadres verifiëren. "
+    confirmations:
+      new:
+        title: "Stuur verificatie instructies opnieuw"
+      show:
+        submit: "Bevestig"

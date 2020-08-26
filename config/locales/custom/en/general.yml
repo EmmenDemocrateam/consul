@@ -1,12 +1,74 @@
 en:
-  layouts:
-    footer:
-      contact: "Contact %{email}"
-      email: "communicatie@dcnd.nl"
-      emmen: Stem van Emmen
-      emmen_description: This is the online participation platform of the municipality of Emmen and is used for online experiments by the Dorspcoöperatie Nieuw-Dordrecht and the Municipal Council of Emmen.
-      questions: "Questions?"
   cookies:
     message: "Your experience on this website was improving with using cookies"
     accept: "Accept cookies"
     more_info: "More information"
+  welcome:
+    feed:
+      proposals_description: "Citizen proposals that gather enough suppport will go to a voting phase, so you can get all the citizens to decide how they want their city to be."
+      budgets_description: "Participatory budgets are processes in which citizens decide directly on what is spent part of the municipal budget. The most supported projects are evaluated and passed to a final vote in which they decide the actions to be carried out by the City Council."
+      most_active:
+        proposals: "Featured proposals"
+        budgets: "Participatory budgets"
+      see_all_proposals: "See all"
+      see_budget: "See this budget"
+    steps:
+      title: "Participate in 3 steps"
+      subtitle: "Optional secondary text."
+      step_1:
+        number: "1"
+        title: "Sign-up"
+        description: "Short text describing some of the data that is expected to be asked when making an account."
+        link: "Make an account in 5 minutes"
+      step_2:
+        number: "2"
+        title: "Decide"
+        description: "Share your ideas and vote on the changes you want to see in the city."
+        link: "See what's happening around the city right now"
+      step_3:
+        number: "3"
+        title: "Share"
+        description: "Keep up with the ideas that matter to you the most, and share them through social media."
+  layouts:
+    footer:
+      org_name: "Stem van Emmen"
+      facebook: "facebook/consul"
+      contact_title: "Contact %{email}"
+      contact_email: "communicatie@dcnd.nl"
+  debates:
+    index:
+      section_header:
+        description: "Start a debate to share your views on topics you consider important."
+      orders:
+        confidence_score: "Highest rated"
+        created_at: "Newest"
+        hot_score: "Most active"
+        most_commented: "Most commented"
+        relevance: "Relevance"
+        recommendations: "Recommendations"
+  proposals:
+    index:
+      section_header:
+        description: "Support ideas and if they get enough support they will be voted."
+      orders:
+        confidence_score: "Highest rated"
+        created_at: "Newest"
+        hot_score: "Most active"
+        most_commented: "Most commented"
+        relevance: "Relevance"
+        archival_date: "Archived"
+        recommendations: "Recommendations"
+    form:
+      tags_label: "Onderwerpen/labels"
+    shared:
+      confirm_support: "Are you sure? You will support the proposal \"%{proposal}\" and this action cannot be undone."
+  polls:
+    index:
+      section_header:
+        description: "Give your opinion on specific topics"
+      remaining: "Remaining <strong>%{days}</strong> to participate"
+  poll_questions:
+    show:
+      vote_registered: "Your vote has been registered correctly."
+  shared:
+    expired: "Expired"

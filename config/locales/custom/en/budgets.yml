@@ -2,3 +2,9 @@ en:
   budgets:
     index:
       heading_button: Summary of projects submitted
+    ballots:
+      show:
+        back: "Go back to budgets"
+    investments:
+      investment:
+        remove_support: "Remove your support"

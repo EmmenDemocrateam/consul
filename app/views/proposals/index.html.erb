@@ -113,7 +113,7 @@
         <%= paginate @proposals %>
 
         <% unless @search_terms || @advanced_search_terms || @tag_filter %>
-          <div id="section_help" class="margin" data-magellan-target="section_help">
+          <div id="section_help" class="section-help margin" data-magellan-target="section_help">
             <p class="lead">
               <strong><%= t("proposals.index.section_footer.title") %></strong>
             </p>
@@ -121,6 +121,15 @@
           </div>
         <% end %>
       </div>
+    </div>
+
+    <div class="small-12 medium-3 column proposals-sidebar">
+      <aside class="margin-bottom">
+        <% if params[:retired].blank? %>
+          <%= render "categories" %>
+          <%= render "shared/tag_cloud", taggable: "proposal" %>
+        <% end %>
+      </aside>
     </div>
   </div>
 </main>

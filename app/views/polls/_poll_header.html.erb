@@ -18,6 +18,13 @@
           <% end %>
         </ul>
       <% end %>
+
+      <% if @poll.description.present? %>
+        <div id="poll_description_text">
+          <h3><%= t("polls.show.more_info_title") %></h3>
+          <%= auto_link_already_sanitized_html simple_format(@poll.description) %>
+        </div>
+      <% end %>
     </div>
 
     <aside class="small-12 medium-3 column margin-top">
