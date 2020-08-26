@@ -10,6 +10,26 @@ describe "Admin proposals" do
                   "admin_proposal_path"
 
   context "Index" do
+    scenario "Display proposals info" do
+      proposal = create(:proposal, title: "Awesome proposal", cached_votes_up: 10)
+      create(:milestone, milestoneable: proposal)
+      create(:milestone, milestoneable: proposal)
+
+      visit admin_proposals_path
+
+      expect(page).to have_content "ID"
+      expect(page).to have_content "Proposal"
+      expect(page).to have_content "Author"
+      expect(page).to have_content "Supports"
+      expect(page).to have_content "Milestones"
+
+      expect(page).to have_content "1"
+      expect(page).to have_content "Awesome proposal"
+      expect(page).to have_content proposal.author.username
+      expect(page).to have_content "10"
+      expect(page).to have_content "2"
+    end
+
     scenario "Search" do
       create(:proposal, title: "Make Pluto a planet again")
       create(:proposal, title: "Build a monument to honour CONSUL developers")

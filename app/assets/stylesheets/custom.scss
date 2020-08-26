@@ -2367,6 +2367,13 @@ footer {
     img {
       padding-top: rem-calc(100);
     }
+
+    .button {
+
+      &.expanded {
+        margin-top: $line-height;
+      }
+    }
   }
 
   .auth-image {
