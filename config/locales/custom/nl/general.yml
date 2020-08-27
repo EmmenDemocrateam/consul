@@ -293,8 +293,8 @@ nl:
       org_name: "Stem van Emmen"
       contact_title: "Neem contact op met"
       privacy: "Privacyverklaring"
-      contact_email: "communicatie@dcnd.nl"
-      facebook: "facebook/consul"
+      contact_email: "gemeente@emmen.nl"
+      facebook: "facebook/gemeenteemmen"
     dashboard:
       proposal_header:
         published: "Gepubliceerd"
