@@ -293,8 +293,12 @@ nl:
       org_name: "Stem van Emmen"
       contact_title: "Neem contact op met"
       privacy: "Privacyverklaring"
-      contact_email: "gemeente@emmen.nl"
-      facebook: "facebook/gemeenteemmen"
+      contact_email_1_title: "Gemeente Borger-Odoorn"
+      contact_email_1: "gemeente@borger-odoorn.nl"
+      contact_email_2_title: "Gemeente Coevorden"
+      contact_email_2: "info@coevorden.nl"
+      contact_email_3_title: "Gemeente Emmen"
+      contact_email_3: "gemeente@emmen.nl"
     dashboard:
       proposal_header:
         published: "Gepubliceerd"

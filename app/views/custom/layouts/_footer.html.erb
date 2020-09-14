@@ -12,16 +12,30 @@
       <h2 class="footer-title"><%= t("layouts.footer.contact_title") %></h2>
 
       <p>
-        <span class="far fa-envelope"></span>
-        <%= link_to t("layouts.footer.contact_email"),
-                    "mailto:gemeente@emmen.nl" %>
+        <span class="far fa-envelope float-left"></span>
+        <span class="footer-email">
+          <%= t("layouts.footer.contact_email_1_title") %>
+          <%= link_to t("layouts.footer.contact_email_1"),
+                      "mailto:gemeente@borger-odoorn.nl?Subject=T.a.v. Jan Ymker" %>
+        </span>
       </p>
 
       <p>
-        <span class="fab fa-facebook-f"></span>
-        <%= link_to t("layouts.footer.facebook"),
-                    "https://www.facebook.com/gemeenteemmen",
-                    target: "_blank" %>
+        <span class="far fa-envelope float-left"></span>
+        <span class="footer-email">
+          <%= t("layouts.footer.contact_email_2_title") %>
+          <%= link_to t("layouts.footer.contact_email_2"),
+                      "mailto:info@coevorden.nl?Subject=T.a.v. Marc Pothof" %>
+        </span>
+      </p>
+
+      <p>
+        <span class="far fa-envelope float-left"></span>
+        <span class="footer-email">
+          <%= t("layouts.footer.contact_email_3_title") %>
+          <%= link_to t("layouts.footer.contact_email_3"),
+                      "mailto:gemeente@emmen.nl?Subject=T.a.v. Ulco de Vries" %>
+        </span>
       </p>
     </div>
   </div>
