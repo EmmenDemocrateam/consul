@@ -897,6 +897,8 @@ footer {
       display: inline-block;
       font-size: rem-calc(20);
       line-height: rem-calc(40);
+      margin-left: 0;
+      margin-right: 0;
       vertical-align: top;
     }
   }
@@ -920,6 +922,10 @@ footer {
   a {
     padding: 0 $line-height / 2;
   }
+}
+
+.footer-email {
+  display: block;
 }
 
 // 4. Budgets
@@ -2366,7 +2372,7 @@ footer {
   }
 
   .auth-image {
-    background: $brand image-url("auth_bg.png");
+    background: $brand image-url("auth_bg.jpg");
 
     @include breakpoint(medium) {
       min-height: rem-calc(1390);

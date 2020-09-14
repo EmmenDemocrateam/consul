@@ -13,11 +13,17 @@
 <div class="row">
   <div class="small-12 column">
     <% if show_polls_description? %>
-      <div class="polls-description">
-        <%= auto_link_already_sanitized_html AdminWYSIWYGSanitizer.new.sanitize(@active_poll.description) %>
+      <div class="small-12 medium-9 column">
+        <div class="polls-description">
+          <%= auto_link_already_sanitized_html AdminWYSIWYGSanitizer.new.sanitize(@active_poll.description) %>
+        </div>
       </div>
-    <% end %>
 
+      <%= render "video_index" %>
+    <% end %>
+  </div>
+
+  <div class="small-12 column">
     <%= render "shared/filter_subnav", i18n_namespace: "polls.index" %>
 
     <% if @polls.any? %>
