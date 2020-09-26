@@ -6,8 +6,6 @@ describe Abilities::Administrator do
 
   let(:user) { administrator.user }
   let(:administrator) { create(:administrator) }
-  let(:poll) { create(:poll, :current, stats_enabled: false, results_enabled: false) }
-  let(:poll_expired) { create(:poll, :expired, stats_enabled: false, results_enabled: false) }
 
   let(:other_user) { create(:user) }
   let(:hidden_user) { create(:user, :hidden) }
@@ -93,12 +91,6 @@ describe Abilities::Administrator do
   it { should be_able_to(:read, Poll::Question) }
   it { should be_able_to(:create, Poll::Question) }
   it { should be_able_to(:update, Poll::Question) }
-
-  it { should_not be_able_to(:stats, poll) }
-  it { should_not be_able_to(:results, poll) }
-
-  it { should be_able_to(:stats, poll_expired) }
-  it { should be_able_to(:results, poll_expired) }
 
   it { is_expected.to be_able_to :manage, Dashboard::AdministratorTask }
   it { is_expected.to be_able_to :manage, dashboard_administrator_task }
