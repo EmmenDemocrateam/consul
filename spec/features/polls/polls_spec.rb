@@ -551,8 +551,9 @@ describe "Polls" do
       expect(page).to have_content("You do not have permission to carry out the action 'stats' on poll.")
     end
 
-    scenario "Do not show poll results or stats to admins if disabled" do
-      poll = create(:poll, :expired, results_enabled: false, stats_enabled: false)
+    scenario "Only show poll results or stats to admins if expired" do
+      poll = create(:poll, :current, results_enabled: false, stats_enabled: false)
+      poll_expired = create(:poll, :expired, results_enabled: false, stats_enabled: false)
       admin = create(:administrator).user
 
       login_as admin
@@ -560,6 +561,11 @@ describe "Polls" do
 
       expect(page).not_to have_content("Poll results")
       expect(page).not_to have_content("Participation statistics")
+
+      visit poll_path(poll_expired)
+
+      expect(page).to have_content("Poll results")
+      expect(page).to have_content("Participation statistics")
     end
 
     scenario "Don't show poll results and stats if is not expired" do
