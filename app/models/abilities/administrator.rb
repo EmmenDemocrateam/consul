@@ -76,6 +76,7 @@ module Abilities
       can [:index, :create, :edit, :update, :destroy], Geozone
 
       can [:read, :create, :update, :destroy, :add_question, :search_booths, :search_officers, :booth_assignments], Poll
+      can [:results, :stats], Poll, ["ends_at < ?", Date.current.beginning_of_day], &:expired?
       can [:read, :create, :update, :destroy, :available], Poll::Booth
       can [:search, :create, :index, :destroy], ::Poll::Officer
       can [:create, :destroy, :manage], ::Poll::BoothAssignment
