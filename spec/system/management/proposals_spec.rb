@@ -162,7 +162,8 @@ describe "Proposals" do
       click_link "Support proposals"
 
       within(".proposals-list") { click_link proposal.title }
-      expect(page).to have_content proposal.code
+      # Hide proposal code by custom content
+      expect(page).not_to have_content proposal.code
 
       within("#proposal_#{proposal.id}_votes") do
         accept_confirm { click_link "Support" }
