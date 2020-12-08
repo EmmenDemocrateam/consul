@@ -21,11 +21,13 @@ class Budget < ApplicationRecord
   end
 
   CURRENCY_SYMBOLS = %w[€ $ £ ¥].freeze
+  VOTING_STYLES = %w[knapsack approval].freeze
 
   validates_translation :name, presence: true
   validates :phase, inclusion: { in: Budget::Phase::PHASE_KINDS }
   validates :currency_symbol, presence: true
   validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
+  validates :voting_style, inclusion: { in: VOTING_STYLES }
   validates :main_button_url, presence: true, if: -> { main_button_text.present? }
 
   has_many :investments, dependent: :destroy
@@ -34,9 +36,9 @@ class Budget < ApplicationRecord
   has_many :headings, through: :groups
   has_many :lines, through: :ballots, class_name: "Budget::Ballot::Line"
   has_many :phases, class_name: "Budget::Phase"
-  has_many :budget_administrators
+  has_many :budget_administrators, dependent: :destroy
   has_many :administrators, through: :budget_administrators
-  has_many :budget_valuators
+  has_many :budget_valuators, dependent: :destroy
   has_many :valuators, through: :budget_valuators
 
   has_one :poll
@@ -151,8 +153,12 @@ class Budget < ApplicationRecord
     current_phase&.balloting_or_later?
   end
 
+  def single_group?
+    groups.count == 1
+  end
+
   def single_heading?
-    groups.count == 1 && headings.count == 1
+    single_group? && headings.count == 1
   end
 
   def enabled_phases_amount
@@ -199,10 +205,6 @@ class Budget < ApplicationRecord
     formatted_amount(heading_price(heading))
   end
 
-  def formatted_heading_amount_spent(heading)
-    formatted_amount(amount_spent(heading))
-  end
-
   def investments_orders
     case phase
     when "accepting", "reviewing"
@@ -236,6 +238,10 @@ class Budget < ApplicationRecord
     investments.winners.map(&:milestone_tag_list).flatten.uniq.sort
   end
 
+  def approval_voting?
+    voting_style == "approval"
+  end
+
   def investments_preview_list(limit = 9)
     case phase
     when "accepting", "reviewing"
@@ -246,6 +252,14 @@ class Budget < ApplicationRecord
       investments.selected.sample(limit)
     else
       []
+    end
+  end
+
+  def self.open_budgets_for(user = nil)
+    if user&.administrator?
+      open.order(:created_at)
+    else
+      open.published.order(:created_at)
     end
   end
 
