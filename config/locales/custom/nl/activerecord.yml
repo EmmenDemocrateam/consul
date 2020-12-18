@@ -45,6 +45,7 @@ nl:
         public_interests: "Maak de onderwerpen/labels die ik volg openbaar"
         recommended_debates: "Toon aanbevelingen voor discussie"
         recommended_proposals: "Toon aanbevelingen voor voorstellen"
+        username: "Naam"
       budget:
         main_button_text: "Tekst knop"
         main_button_url: "Link knop"
