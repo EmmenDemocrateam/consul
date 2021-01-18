@@ -33,12 +33,8 @@ en:
     footer:
       org_name: "Stem van Emmen"
       contact_title: "Contact %{email}"
-      contact_email_1_title: "Gemeente Borger-Odoorn"
-      contact_email_1: "gemeente@borger-odoorn.nl"
-      contact_email_2_title: "Gemeente Coevorden"
-      contact_email_2: "info@coevorden.nl"
-      contact_email_3_title: "Gemeente Emmen"
-      contact_email_3: "gemeente@emmen.nl"
+      contact_email_title: "Gemeente Emmen"
+      contact_email: "gemeente@emmen.nl"
   debates:
     index:
       section_header:
