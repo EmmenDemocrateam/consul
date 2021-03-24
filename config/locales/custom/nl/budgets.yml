@@ -164,6 +164,13 @@ nl:
         updated_notice: "Je idee is aangepast."
         tag_category_label: "Categorieën"
         tags_placeholder: "Voer de categorie in die je wilt gebruiken, gescheiden door kommas (',')"
+        description_help:
+          title: "Verwerk in de omschrijving de onderstaande punten:"
+          text_1: "Doel van het idee."
+          text_2: "Voor wie is het?"
+          text_3: "Wanneer is het gestart?"
+          text_4: "Wanneer is het gestopt?"
+          text_5: "Waarom verdient dit initiatief de waarderingsprijs?"
       investment:
         price_title: "Prijs"
         support_title: "Stemmen"
