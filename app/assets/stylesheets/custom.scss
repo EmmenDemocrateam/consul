@@ -940,6 +940,11 @@ footer {
   &.budget {
     background: $brand;
 
+    &:not(.button) {
+      min-height: $line-height * 12;
+      padding-top: $line-height * 2;
+    }
+
     &:not(.button) .button {
       background: rgba(0 , 0, 0, 0.5);
       color: #fff;

@@ -7,16 +7,11 @@
 <% end %>
   <div class="row">
     <div class="small-12 column text-center">
-      <span class="budget-title"><%= t("budgets.index.title") %></span>
       <h1><%= budget.name %></h1>
 
       <% if budget.main_button_text.present? && budget.main_button_url.present? %>
         <%= link_to budget.main_button_text, budget.main_button_url, class: "button large" %>
       <% end %>
-
-      <p>
-        <%= link_to t("budgets.index.section_header.help"), "#section_help" %>
-      </p>
     </div>
   </div>
 </div>

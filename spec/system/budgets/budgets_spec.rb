@@ -115,7 +115,7 @@ describe "Budgets" do
 
       within("#budget_heading") do
         expect(page).to have_content(budget.name)
-        expect(page).to have_link("Help with participatory budgets")
+        #expect(page).to have_link("Help with participatory budgets")
       end
 
       expect(page).to have_content("Actual phase")
