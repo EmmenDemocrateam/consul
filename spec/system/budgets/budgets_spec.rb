@@ -153,7 +153,7 @@ describe "Budgets" do
       end
     end
 
-    scenario "Show finished budgets list" do
+    xscenario "Show finished budgets list" do
       finished_budget_1 = create(:budget, :finished)
       finished_budget_2 = create(:budget, :finished)
       drafting_budget = create(:budget, :drafting)
