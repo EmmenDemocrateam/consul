@@ -13,12 +13,17 @@
 
 <div class="auth-title">
   <h2><%= t("devise_views.users.registrations.new.title") %></h2>
-  <p>
-    <%= sanitize(t("devise_views.users.registrations.new.organization_signup",
-        signup_link: link_to(t("devise_views.users.registrations.new.organization_signup_link"), new_organization_registration_path,
-        title: t("shared.target_blank"),
-        target: "_blank"))) %>
-  </p>
+  <div class="info-text text-left">
+    <p><%= t("devise_views.users.registrations.new.text.intro") %></p>
+    <p><strong><%= t("devise_views.users.registrations.new.text.question") %></strong></p>
+    <p>
+      <%= sanitize(t("devise_views.users.registrations.new.text.description")) %>
+      <%= link_to t("devise_views.users.registrations.new.text.privacy_link"), target: "_blank" do %>
+        <%= t("devise_views.users.registrations.new.text.privacy") %>
+      <% end %>
+      <%= t("devise_views.users.registrations.new.text.description_2") %>
+    </p>
+  </div>
 </div>
 
 <%= render "devise/omniauth_form", action: "sign_up" %>

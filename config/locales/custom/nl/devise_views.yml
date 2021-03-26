@@ -33,12 +33,19 @@ nl:
       registrations:
         new:
           title: "Aanmelden"
+          text:
+            intro: "Wij willen graag met inwoners in gesprek komen. Om mee te denken, mee te praten en te stemmen gebruikt de Gemeente Emmen op dit moment stemvan.emmen.nl. Het gebruik van stemvan.emmen.nl is op dit moment nog een proef. Eind 2021 kijken we of dit systeem voldoende voor onze gemeente werkt om het voor langere tijd te gebruiken."
+            question: "Denkt u mee?"
+            description: "Als u ook wil meepraten en -denken via dit platform, dan moet u zich hieronder aanmelden met een gebruikersnaam, emailadres en wachtwoord. U hoeft zich maar 1 keer aan te melden en kunt vanaf dan meedoen moet allerlei participatieprojecten die wij hierop plaatsen. Uiteraard gaan wij zorgvuldig om met uw gegevens."
+            privacy: "Lees hierover meer in onze privacyverklaring"
+            privacy_link: "https://gemeente.emmen.nl/privacyverklaring"
+            description_2: ". De gegevens die u hier aan ons doorgeeft, kunnen wij gebruiken om procesinformatie met u te delen over het participatieproject. Om u bijvoorbeeld te informeren dat de stemronde is begonnen."
           organization_signup: "Vertegenwoordigt u een organisatie of collectief? Meldt u dan %{signup_link} aan."
           organization_signup_link: "hier"
           username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"
-          terms: "Ik ben een inwoner van Gemeente Emmen en ik accepteer de %{terms}."
+          terms: "En ik accepteer de %{terms}."
           terms_link: "gebruikersvoorwaarden"
-          terms_title: "Ik ben een inwoner van Gemeente Emmen en ik accepteer de gebruikersvoorwaarden"
+          terms_title: "En ik accepteer de gebruikersvoorwaarden"
           submit: "Aanmelden"
           username_label: "Gebruikersnaam"
           username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"

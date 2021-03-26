@@ -2360,6 +2360,11 @@ footer {
       font-size: $base-font-size;
     }
 
+    .info-text p,
+    .info-text a {
+      font-size: $small-font-size !important;
+    }
+
     .checkbox {
       font-weight: bold;
     }
