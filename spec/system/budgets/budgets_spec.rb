@@ -321,6 +321,24 @@ describe "Budgets" do
     end
   end
 
+  scenario "Header with main button url is different if current user " do
+    budget = create(:budget, main_button_text: "Create a project!", main_button_url: "https://consulproject.org")
+    user = create(:user)
+
+    visit budgets_path(budget)
+
+    within("#budget_heading") do
+      expect(page).to have_link("Create a project!", href: new_user_registration_path)
+    end
+
+    login_as(user)
+    visit budgets_path(budget)
+
+    within("#budget_heading") do
+      expect(page).to have_link("Create a project!", href: "https://consulproject.org")
+    end
+  end
+
   context "Index map" do
     let(:heading) { create(:budget_heading, budget: budget) }
 
