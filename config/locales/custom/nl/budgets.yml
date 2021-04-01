@@ -150,7 +150,9 @@ nl:
         see_price_explanation: "Toelichting van de kosten"
         project_unfeasible: "Dit idee is gemarkeerd als niet stembaar en gaat niet naar de stemronde"
         project_winner: "Gekozen idee"
+        feasibility_explanation: "Uitleg over geschiktheid idee"
         unfeasibility_explanation: "Uitleg van onhaalbaarheid"
+        price_explanation: "Toelichting kosten"
         votes: "Stemmen"
         code: "Begrotingsvoorstel code: <strong>%{code}</strong>"
       form:
