@@ -125,6 +125,8 @@ ignore_missing:
   - "budgets.progress_bar.you_have_assigned"
   - "admin.officials.index.help_link"
   - "debates.index.section_footer.help_text_link"
+  - "budgets.investments.form.description_help.*"
+  - "devise_views.users.registrations.new.text.*"
 
 ## Consider these keys used:
 ignore_unused:
@@ -242,6 +244,12 @@ ignore_unused:
   - "devise_views.shared.links.signup"
   - "devise_views.shared.links.signup_link"
   - "budgets.investments.show.code"
+  - "budgets.investments.form.tag_category_label"
+  - "budgets.investments.form.tags_instructions"
+  - "budgets.investments.form.tags_label"
+  - "budgets.investments.form.tags_placeholder"
+  - "devise_views.users.registrations.new.organization_signup"
+  - "devise_views.users.registrations.new.organization_signup_link"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:

@@ -102,7 +102,7 @@ nl:
           voted_info_link: "je stem wijzigen"
           create: "Nieuw idee delen"
           zero: "Je hebt nog niet op een idee gestemd"
-          not_logged_in: "Om een nieuw voorstel te doen, moet u zich %{sign_in} of %{sign_up}."
+          not_logged_in: "Om een nieuw voorstel te doen, moet u %{sign_in} of u moet zich %{sign_up}."
           by_feasibility: "Op haalbaarheid"
           change_ballot: "Als je je bedenkt kun je je stemmen in %{check_ballot} verwijderen en opnieuw beginnen."
           check_ballot_link: "Bekijk mijn stemmen"
@@ -136,7 +136,6 @@ nl:
         search_form:
           placeholder: "Zoek ideeën..."
         unfeasible: "Onhaalbare begrotingsvoorstellen"
-        unfeasible_text: "De Coöperatieve Wijkraad heeft alle ideeën bekeken die de afgelopen weken zijn verzameld. We hebben nagekeken of ze écht voor de wijk zijn en hebben onderzocht hoeveel geld het zou kosten om dit idee uit te voeren. Hieronder vind je alle ideeën waar niet op gestemd kan worden. We hebben uitgelegd aan de indiener van het idee waarom wij dat vinden. Sommige ideeën zijn gecombineerd met een ander idee, andere ideeën waren een suggestie. Sommige ideeën worden al uitgevoerd en met sommige indieners van ideeën hebben we helaas geen contact kunnen krijgen."
         title: "Ideeën"
       show:
         title: "Idee"
@@ -164,6 +163,13 @@ nl:
         updated_notice: "Je idee is aangepast."
         tag_category_label: "Categorieën"
         tags_placeholder: "Voer de categorie in die je wilt gebruiken, gescheiden door kommas (',')"
+        description_help:
+          title: "Verwerk in de omschrijving de onderstaande punten:"
+          text_1: "Doel van het idee."
+          text_2: "Voor wie is het?"
+          text_3: "Wanneer is het gestart?"
+          text_4: "Wanneer is het gestopt?"
+          text_5: "Waarom verdient dit initiatief de waarderingsprijs?"
       investment:
         price_title: "Prijs"
         support_title: "Stemmen"
@@ -184,8 +190,6 @@ nl:
         price: "Totaal budget:"
         change_ballot: "Als je je bedenkt kun je je stemmen in %{check_ballot} verwijderen en opnieuw beginnen."
         different_heading_assigned: "Je hebt al gestemd in een andere groep: %{heading_link}"
-      share:
-        message: "Dit is een goed idee voor de Oosterparkwijk! Vanaf 18 november kan je stemmen op dit idee"
     show:
       see_all_investments: "Bekijk alle ideeën"
       investments_list: "Ideeën"

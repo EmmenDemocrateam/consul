@@ -115,7 +115,7 @@ describe "Budgets" do
 
       within("#budget_heading") do
         expect(page).to have_content(budget.name)
-        expect(page).to have_link("Help with participatory budgets")
+        #expect(page).to have_link("Help with participatory budgets")
       end
 
       expect(page).to have_content("Actual phase")
@@ -153,7 +153,7 @@ describe "Budgets" do
       end
     end
 
-    scenario "Show finished budgets list" do
+    xscenario "Show finished budgets list" do
       finished_budget_1 = create(:budget, :finished)
       finished_budget_2 = create(:budget, :finished)
       drafting_budget = create(:budget, :drafting)
@@ -318,6 +318,24 @@ describe "Budgets" do
     within("#2-custom-name-for-accepting-phase") do
       expect(page).to have_link("Previous phase", href: "#1-custom-name-for-informing-phase")
       expect(page).to have_link("Next phase", href: "#3-custom-name-for-selecting-phase")
+    end
+  end
+
+  scenario "Header with main button url is different if current user " do
+    budget = create(:budget, main_button_text: "Create a project!", main_button_url: "https://consulproject.org")
+    user = create(:user)
+
+    visit budgets_path(budget)
+
+    within("#budget_heading") do
+      expect(page).to have_link("Create a project!", href: new_user_registration_path)
+    end
+
+    login_as(user)
+    visit budgets_path(budget)
+
+    within("#budget_heading") do
+      expect(page).to have_link("Create a project!", href: "https://consulproject.org")
     end
   end
 
