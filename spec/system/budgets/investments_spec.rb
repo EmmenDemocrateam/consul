@@ -897,8 +897,8 @@ describe "Budget Investments" do
       fill_in "Title", with: "Build a skyscraper"
       fill_in "Description", with: "I want to live in a high tower over the clouds"
       fill_in "Information about the location", with: "City center"
-      fill_in "If you are proposing in the name of a collective/organization, "\
-              "or on behalf of more people, write its name", with: "T.I.A."
+      # fill_in "If you are proposing in the name of a collective/organization, "\
+      #         "or on behalf of more people, write its name", with: "T.I.A."
       # fill_in "Tags", with: "Towers"
       # Check terms of service by default
       # check "I agree to the Privacy Policy and the Terms and conditions of use"
@@ -909,7 +909,7 @@ describe "Budget Investments" do
       expect(page).to have_content "Build a skyscraper"
       expect(page).to have_content "I want to live in a high tower over the clouds"
       expect(page).to have_content "City center"
-      expect(page).to have_content "T.I.A."
+      # expect(page).to have_content "T.I.A."
       # expect(page).to have_content "Towers"
 
       visit user_url(author, filter: :budget_investments)
@@ -951,7 +951,7 @@ describe "Budget Investments" do
       fill_in "Title", with: "Build a skyscraper"
       fill_in "Description", with: "I want to live in a high tower over the clouds"
       fill_in "budget_investment_location", with: "City center"
-      fill_in "budget_investment_organization_name", with: "T.I.A."
+      # fill_in "budget_investment_organization_name", with: "T.I.A."
       # fill_in "budget_investment_tag_list", with: "Towers"
       # Check terms of service by default
       # check "budget_investment_terms_of_service"
@@ -962,7 +962,7 @@ describe "Budget Investments" do
       expect(page).to have_content "Build a skyscraper"
       expect(page).to have_content "I want to live in a high tower over the clouds"
       expect(page).to have_content "City center"
-      expect(page).to have_content "T.I.A."
+      # expect(page).to have_content "T.I.A."
       # expect(page).to have_content "Towers"
 
       visit user_url(author, filter: :budget_investments)

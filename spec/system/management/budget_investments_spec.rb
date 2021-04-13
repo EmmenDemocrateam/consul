@@ -68,7 +68,7 @@ describe "Budget Investments" do
       fill_in "Title", with: "Build a park in my neighborhood"
       fill_in "Description", with: "There is no parks here..."
       fill_in "budget_investment_location", with: "City center"
-      fill_in "budget_investment_organization_name", with: "T.I.A."
+      # fill_in "budget_investment_organization_name", with: "T.I.A."
       # fill_in "budget_investment_tag_list", with: "green"
 
       click_button "Create Investment"
@@ -79,7 +79,7 @@ describe "Budget Investments" do
       expect(page).to have_content "Build a park in my neighborhood"
       expect(page).to have_content "There is no parks here..."
       expect(page).to have_content "City center"
-      expect(page).to have_content "T.I.A."
+      # expect(page).to have_content "T.I.A."
       # expect(page).to have_content "green"
       expect(page).to have_content user.name
       expect(page).to have_content I18n.l(budget.created_at.to_date)
