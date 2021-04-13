@@ -339,6 +339,27 @@ describe "Budgets" do
     end
   end
 
+  scenario "Phase with main button url is different if current user " do
+    user = create(:user)
+    budget.update!(phase: "accepting")
+    phases = budget.phases
+    phases.accepting.update!(main_button_text: "Create a project!",
+                             main_button_url: "https://consulproject.org")
+
+    visit budgets_path(budget)
+
+    within(".budget-phases") do
+      expect(page).to have_link("Create a project!", href: new_user_registration_path)
+    end
+
+    login_as(user)
+    visit budgets_path(budget)
+
+    within(".budget-phases") do
+      expect(page).to have_link("Create a project!", href: "https://consulproject.org")
+    end
+  end
+
   context "Index map" do
     let(:heading) { create(:budget_heading, budget: budget) }
 
