@@ -127,6 +127,7 @@ ignore_missing:
   - "debates.index.section_footer.help_text_link"
   - "budgets.investments.form.description_help.*"
   - "devise_views.users.registrations.new.text.*"
+  - "shared.not_logged_in"
 
 ## Consider these keys used:
 ignore_unused:
