@@ -26,7 +26,7 @@ nl:
         tag_list: "Onderwerpen/labels"
       debate/translation:
         title: "Titel discussie"
-        description: "Omschrijving"
+        description: "Korte omschrijving"
       proposal:
         video_url: "Link naar video"
         retired_reason: "Reden om initiatief terug te trekken"
