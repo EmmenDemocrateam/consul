@@ -252,6 +252,7 @@ ignore_unused:
   - "devise_views.users.registrations.new.organization_signup_link"
   - "debates.new.recommendations_*"
   - "debates.new.recommendation_*"
+  - "debates.index.section_footer.*"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:
