@@ -250,6 +250,8 @@ ignore_unused:
   - "budgets.investments.form.tags_placeholder"
   - "devise_views.users.registrations.new.organization_signup"
   - "devise_views.users.registrations.new.organization_signup_link"
+  - "debates.new.recommendations_*"
+  - "debates.new.recommendation_*"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:
