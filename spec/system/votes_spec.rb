@@ -10,7 +10,7 @@ describe "Votes" do
   describe "Debates" do
     before { login_as(verified) }
 
-    scenario "Index shows user votes on debates" do
+    xscenario "Index shows user votes on debates" do
       debate1 = create(:debate)
       debate2 = create(:debate)
       debate3 = create(:debate)
@@ -157,7 +157,7 @@ describe "Votes" do
         expect(page).to have_content "1 vote"
       end
 
-      scenario "Create in index", :js do
+      xscenario "Create in index", :js do
         create(:debate)
         visit debates_path
 
@@ -272,7 +272,7 @@ describe "Votes" do
     end
   end
 
-  scenario "Not logged user trying to vote debates", :js do
+  xscenario "Not logged user trying to vote debates", :js do
     debate = create(:debate)
 
     visit debates_path
@@ -329,11 +329,11 @@ describe "Votes" do
 
     login_as(user)
 
-    visit debates_path
-    within("#debate_#{debate.id}") do
-      find("div.votes").hover
-      expect_message_to_many_anonymous_votes
-    end
+    # visit debates_path
+    # within("#debate_#{debate.id}") do
+    #   find("div.votes").hover
+    #   expect_message_to_many_anonymous_votes
+    # end
 
     visit debate_path(debate)
     within("#debate_#{debate.id}") do
