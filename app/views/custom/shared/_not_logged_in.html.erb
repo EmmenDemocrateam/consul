@@ -1,0 +1,9 @@
+<% unless current_user %>
+  <div class="row">
+    <div class="small-12 column">
+      <div class="callout primary margin">
+        <%= sanitize(t("shared.not_logged_in", sign_in: link_to_signin, sign_up: link_to_signup)) %>
+      </div>
+    </div>
+  </div>
+<% end %>

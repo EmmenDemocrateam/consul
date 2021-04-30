@@ -28,7 +28,7 @@
       </div>
     </div>
   <% else %>
-    <%= render "shared/section_header",
+    <%= render "shared/section_header_debates",
                i18n_namespace: "debates.index.section_header",
                image: "far fa-comment-alt" %>
   <% end %>
@@ -55,8 +55,7 @@
       </div>
 
       <%= render "shared/advanced_search", search_path: debates_path(page: 1) %>
-
-      <%= render "shared/order_links", i18n_namespace: "debates.index" %>
+      <br>
 
       <div class="show-for-small-only">
         <%= link_to t("debates.index.start_debate"), new_debate_path, class: "button expanded" %>
@@ -74,20 +73,6 @@
         <%= empty_recommended_debates_message_text(current_user) %>
       <% end %>
       <%= paginate @debates %>
-
-      <% unless @search_terms || @advanced_search_terms %>
-        <div id="section_help" class="section-help margin" data-magellan-target="section_help">
-          <p class="lead">
-            <strong><%= t("debates.index.section_footer.title") %></strong>
-          </p>
-          <p><%= t("debates.index.section_footer.description") %></p>
-          <p><%= t("debates.index.section_footer.help_text_1") %></p>
-          <p><%= sanitize(t("debates.index.section_footer.help_text_2",
-                            org: link_to(t("debates.index.section_footer.help_text_link"),
-                                         new_user_registration_path))) %>
-          </p>
-        </div>
-      <% end %>
     </div>
 
     <div class="small-12 medium-3 column">

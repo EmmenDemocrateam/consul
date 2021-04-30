@@ -410,6 +410,7 @@ nl:
         destroy:
           notice: "Je volgt dit initiatieven niet meer.<br>Je zult geen updates over dit initiatieven meer ontvangen."
     expired: "Alleen aan te passen in de fase 'ideeën delen'"
+    not_logged_in: "Om een nieuw voorstel te doen, moet u %{sign_in} of u moet zich %{sign_up}."
   links:
     form:
       cancel_button: "Annuleren"

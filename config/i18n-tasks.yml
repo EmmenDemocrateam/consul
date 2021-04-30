@@ -127,6 +127,7 @@ ignore_missing:
   - "debates.index.section_footer.help_text_link"
   - "budgets.investments.form.description_help.*"
   - "devise_views.users.registrations.new.text.*"
+  - "shared.not_logged_in"
 
 ## Consider these keys used:
 ignore_unused:
@@ -250,6 +251,9 @@ ignore_unused:
   - "budgets.investments.form.tags_placeholder"
   - "devise_views.users.registrations.new.organization_signup"
   - "devise_views.users.registrations.new.organization_signup_link"
+  - "debates.new.recommendations_*"
+  - "debates.new.recommendation_*"
+  - "debates.index.section_footer.*"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:
