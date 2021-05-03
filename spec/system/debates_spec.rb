@@ -35,6 +35,19 @@ describe "Debates" do
     end
   end
 
+  scenario "Index button redirect to sign up if not current user" do
+    user = create(:user)
+
+    visit debates_path
+
+    expect(page).to have_link("Start a debate", href: new_user_registration_path)
+
+    login_as(user)
+    visit debates_path
+
+    expect(page).to have_link("Start a debate", href: new_debate_path)
+  end
+
   scenario "Paginated Index" do
     per_page = 3
     allow(Debate).to receive(:default_per_page).and_return(per_page)

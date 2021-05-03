@@ -25,14 +25,14 @@ nl:
   debates:
     create:
       form:
-        submit_button: "Discussie starten"
+        submit_button: "Onderwerp indienen"
     form:
       tags_instructions: "Voeg steekwoorden toe"
       tags_label: "Steekwoorden"
       tags_placeholder: "Voeg de gewenste termen toe, gescheiden door een komma (,)"
     index:
       featured_debates: "Uitgelicht"
-      start_debate: "Discussie starten"
+      start_debate: "Onderwerp indienen"
       recommendations:
         without_interests: "Volg initiatieven zodat wij"
         disable: "Aanbevelingen voor discussies worden niet meer weergegeven als u ze negeert. U kunt ze weer inschakelen op de pagina 'Mijn account'"
@@ -63,8 +63,8 @@ nl:
     new:
       recommendations_title: "Advies bij het starten van een discussie"
       form:
-        submit_button: "Discussie starten"
-      start_new: "Discussie starten"
+        submit_button: "Onderwerp indienen"
+      start_new: "Onderwerp indienen"
     show:
       author: "Auteur"
       comments_title: "Reacties"
