@@ -19,10 +19,13 @@ nl:
       thanks: "Bedankt voor het meedoen."
     budget_investment_unfeasible:
       subject: "Helaas, je idee is onhaalbaar"
-      hi: "Beste deelnemer,"
+      hi: "Beste vrijwilligers,"
       new_href: "dat kan hier"
       contact: "Heb je vragen of wil je hulp bij je idee? Mail dan naar %{email}, we denken graag met je mee."
       email: "gemeente@emmen.nl"
+      text_1: "Nogmaals heel hartelijk dank voor het aanmelden van uw initiatief voor de Waarderingsprijs 2021. Uit alle inzendingen heeft een jury 4 initiatieven gekozen die nu in aanmerking komen voor de Waarderingsprijs. Uw initiatief zit niet bij deze selectie."
+      text_2: "De juryleden hebben de initiatieven met elkaar vergeleken. Ze hebben gekeken naar de selectiecriteria en deze toegepast. Ook hebben ze gekeken of het initiatief samenwerkt met andere partijen, of initiatieven al op een andere manier door de gemeente gesteund zijn, hoeveel vrijwilligers er aan het initiatief werken, hoe het initiatief werd gepresenteerd en hoe het initiatief overkwam op de jury."
+      text_3: "Nogmaals heel hartelijk dank voor uw inzet in uw initiatief. De gemeente Emmen juicht initiatieven als die van u van harte toe. Heeft u nog (andere) vragen? Neem dan contact met ons op via 14 0591."
     budget_investment_unselected:
       subject: "Helaas heeft je idee het niet gehaald"
       hi: "Beste deelnemer,"

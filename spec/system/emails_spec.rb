@@ -386,7 +386,6 @@ describe "Emails" do
       expect(email).to have_subject("Your investment project '#{investment.title}' "\
                                     "has been marked as unfeasible")
       expect(email).to deliver_to(investment.author.email)
-      expect(email).to have_body_text(investment.unfeasibility_explanation)
     end
 
     scenario "Selected investment" do
