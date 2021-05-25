@@ -35,6 +35,12 @@ describe Budget::Phase do
         expect(informing_phase).to be_valid
       end
 
+      it "is valid when dates are blank" do
+        informing_phase.assign_attributes(starts_at: "", ends_at: "")
+
+        expect(informing_phase).to be_valid
+      end
+
       it "is not valid when dates are equal" do
         informing_phase.assign_attributes(starts_at: Date.current, ends_at: Date.current)
 

@@ -56,8 +56,11 @@
             -
             <%= phase_end_date(budget.phases.last) %>
             <br>
-            <%= distance_of_time_in_words(phase_begin_date(budget.phases.first),
-                                          phase_end_date(budget.phases.last)) %>
+            <% if phase_begin_date(budget.phases.first).present? &&
+                  phase_end_date(budget.phases.last).present? %>
+              <%= distance_of_time_in_words(phase_begin_date(budget.phases.first),
+                                            phase_end_date(budget.phases.last)) %>
+            <% end %>
           </td>
           <td>
             <%= render "table_actions", budget: budget %>
