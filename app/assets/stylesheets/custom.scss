@@ -1228,6 +1228,14 @@ footer {
   }
 }
 
+.budget-investment-index-list .budget-investment .investment-project-info {
+  min-height: $line-height * 4;
+}
+
+.budget-investment.index .panel .image-container {
+  height: rem-calc(200);
+}
+
 // 5. Legislation
 // --------------------
 
