@@ -15,6 +15,7 @@ nl:
         no_ballots_allowed: De selectiefase is voorbij
         change_ballot: wijzig uw stem
         casted_offline: Je hebt al offline deelgenomen
+        not_enough_available_votes: "U mag in het totaal maar 1 stem uitbrengen."
     groups:
       show:
         title: Kies een mogelijkheid
