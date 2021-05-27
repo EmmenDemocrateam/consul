@@ -14,6 +14,6 @@
   </div>
 <% end %>
 
-<% unless budget.informing? %>
+<% unless budget.informing? || budget.name == "De waarderingsprijs" %>
   <%= render "all_investments_link", budget: budget %>
 <% end %>
