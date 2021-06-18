@@ -1,4 +1,4 @@
-<%= render "shared/banner" %>
+<%= render Shared::BannerComponent.new("budgets") %>
 
 <%= render "title", budget: @budget %>
 
@@ -7,11 +7,11 @@
 <% end %>
 
 <% if @budget.present? %>
-  <%= render "budget", budget: @budget %>
+  <%= render Budgets::BudgetComponent.new(@budget) %>
 <% else %>
-  <div class="expanded budget no-margin-top margin-bottom">
+  <div class="budget-header margin-bottom">
     <div class="row">
-      <div class="small-12 medium-9 column padding">
+      <div class="small-12 medium-9 column">
           <h1><%= t("budgets.index.title") %></h1>
       </div>
     </div>
@@ -26,4 +26,4 @@
   </div>
 <% end %>
 
-<%= render "footer" %>
+<%= render Budgets::FooterComponent.new %>

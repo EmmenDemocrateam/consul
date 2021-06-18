@@ -4,30 +4,32 @@ shared_examples "notifiable in-app" do |factory_name|
 
   before do
     visit root_path(cookies_accepted: true)
+    create(:notification, :read, notifiable: notifiable, user: author)
   end
 
-  scenario "Notification icon is shown" do
+  scenario "Notification message is shown" do
     create(:notification, notifiable: notifiable, user: author)
 
     login_as author
     visit root_path
 
-    expect(page).to have_css ".icon-notification"
+    expect(page).to have_link "You have a new notification"
   end
 
-  scenario "A user commented on my notifiable", :js do
+  scenario "A user commented on my notifiable" do
     notification = create(:notification, notifiable: notifiable, user: author)
 
     login_as author
     visit root_path
-    find(".icon-notification").click
+
+    click_link "You have a new notification"
 
     expect(page).to have_css ".notification", count: 1
     expect(page).to have_content "Someone commented on"
     expect(page).to have_xpath "//a[@href='#{notification_path(notification)}']"
   end
 
-  scenario "Multiple users commented on my notifiable", :js do
+  scenario "Multiple users commented on my notifiable" do
     3.times do |n|
       login_as(create(:user, :verified))
 
@@ -49,7 +51,7 @@ shared_examples "notifiable in-app" do |factory_name|
     expect(page).to have_xpath "//a[@href='#{notification_path(Notification.last)}']"
   end
 
-  scenario "A user replied to my comment", :js do
+  scenario "A user replied to my comment" do
     comment = create :comment, commentable: notifiable, user: author
 
     login_as(create(:user, :verified))
@@ -74,7 +76,7 @@ shared_examples "notifiable in-app" do |factory_name|
     expect(page).to have_xpath "//a[@href='#{notification_path(Notification.last)}']"
   end
 
-  scenario "Multiple replies to my comment", :js do
+  scenario "Multiple replies to my comment" do
     comment = create :comment, commentable: notifiable, user: author
 
     3.times do |n|
@@ -101,7 +103,7 @@ shared_examples "notifiable in-app" do |factory_name|
     expect(page).to have_xpath "//a[@href='#{notification_path(Notification.last)}']"
   end
 
-  scenario "Author commented on his own notifiable", :js do
+  scenario "Author commented on his own notifiable" do
     login_as(author)
     visit path_for(notifiable)
 
@@ -112,12 +114,13 @@ shared_examples "notifiable in-app" do |factory_name|
     end
 
     within("#notifications") do
-      find(".icon-no-notification").click
+      click_link "You don't have new notifications"
+
       expect(page).to have_css ".notification", count: 0
     end
   end
 
-  scenario "Author replied to his own comment", :js do
+  scenario "Author replied to his own comment" do
     comment = create :comment, commentable: notifiable, user: author
 
     login_as author
@@ -134,7 +137,8 @@ shared_examples "notifiable in-app" do |factory_name|
     end
 
     within("#notifications") do
-      find(".icon-no-notification").click
+      click_link "You don't have new notifications"
+
       expect(page).to have_css ".notification", count: 0
     end
   end

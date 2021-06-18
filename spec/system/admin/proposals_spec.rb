@@ -1,10 +1,6 @@
 require "rails_helper"
 
-describe "Admin proposals" do
-  before do
-    login_as create(:administrator).user
-  end
-
+describe "Admin proposals", :admin do
   it_behaves_like "admin_milestoneable",
                   :proposal,
                   "admin_polymorphic_path"
@@ -47,7 +43,7 @@ describe "Admin proposals" do
       expect(page).not_to have_content "Build a monument"
     end
 
-    scenario "Select a proposal", :js do
+    scenario "Select a proposal" do
       proposal = create(:proposal)
 
       visit admin_proposals_path
@@ -55,10 +51,13 @@ describe "Admin proposals" do
       within("#proposal_#{proposal.id}") { click_link "Select" }
 
       within("#proposal_#{proposal.id}") { expect(page).to have_link "Selected" }
-      expect(proposal.reload.selected?).to be true
+
+      refresh
+
+      within("#proposal_#{proposal.id}") { expect(page).to have_link "Selected" }
     end
 
-    scenario "Unselect a proposal", :js do
+    scenario "Unselect a proposal" do
       proposal = create(:proposal, :selected)
 
       visit admin_proposals_path
@@ -66,7 +65,10 @@ describe "Admin proposals" do
       within("#proposal_#{proposal.id}") { click_link "Selected" }
 
       within("#proposal_#{proposal.id}") { expect(page).to have_link "Select" }
-      expect(proposal.reload.selected?).to be false
+
+      refresh
+
+      within("#proposal_#{proposal.id}") { expect(page).to have_link "Select" }
     end
   end
 
@@ -84,9 +86,6 @@ describe "Admin proposals" do
 
     scenario "Successful proposals show create question button" do
       successful_proposals = create_successful_proposals
-      admin = create(:administrator)
-
-      login_as(admin.user)
 
       visit admin_proposals_path
 
@@ -107,7 +106,6 @@ describe "Admin proposals" do
 
       expect(page).to have_content "Proposal updated successfully"
       expect(find_field("Mark as selected")).to be_checked
-      expect(proposal.reload.selected?).to be true
     end
 
     scenario "Unselect a proposal" do
@@ -120,7 +118,6 @@ describe "Admin proposals" do
 
       expect(page).to have_content "Proposal updated successfully"
       expect(find_field("Mark as selected")).not_to be_checked
-      expect(proposal.reload.selected?).to be false
     end
   end
 end
