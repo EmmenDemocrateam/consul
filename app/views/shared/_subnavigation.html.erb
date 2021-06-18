@@ -7,8 +7,7 @@
         <%= layout_menu_link_to t("layouts.header.proposals"),
                                 proposals_path,
                                 controller.class == ProposalsController,
-                                accesskey: "2",
-                                title: t("shared.go_to_page") + t("layouts.header.proposals") %>
+                                accesskey: "2" %>
       </li>
     <% end %>
     <% if feature?(:polls) %>
@@ -16,8 +15,7 @@
         <%= layout_menu_link_to t("layouts.header.poll_questions"),
                                   polls_path,
                                   controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls),
-                                  accesskey: "3",
-                                  title: t("shared.go_to_page") + t("layouts.header.poll_questions") %>
+                                  accesskey: "3" %>
       </li>
     <% end %>
     <% if feature?(:legislation) %>
@@ -29,13 +27,14 @@
       </li>
     <% end %>
     <% if feature?(:budgets) %>
+      <%= render "shared/budgets_links" %>
+    <% end %>
+    <% if feature?(:sdg) %>
       <li>
-        <%= layout_menu_link_to t("layouts.header.budgets"),
-                                  budgets_path,
-                                  controller_name == "budgets" || controller_name == "investments",
-                                  accesskey: "5",
-                                  title: t("shared.go_to_page") + t("layouts.header.budgets") %>
-        <%= render "shared/budgets_links" %>
+        <%= layout_menu_link_to t("layouts.header.sdg"),
+                                sdg_goals_path,
+                                controller_path == "sdg/goals" && action_name != "help",
+                                accesskey: "6" %>
       </li>
     <% end %>
     <% if feature?(:debates) %>
@@ -52,8 +51,7 @@
         <%= layout_menu_link_to t("layouts.header.help"),
                                 help_path,
                                 current_page?(help_path),
-                                accesskey: "6",
-                                title: t("shared.go_to_page") + t("layouts.header.help") %>
+                                accesskey: "7" %>
       </li>
     <% end %>
 

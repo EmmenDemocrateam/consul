@@ -14,6 +14,18 @@ describe Budget::Phase do
       expect(build(:budget_phase, budget: nil)).not_to be_valid
     end
 
+    it "is not valid without a start date" do
+      phase = budget.phases.first
+      phase.starts_at = nil
+      expect(phase).not_to be_valid
+    end
+
+    it "is not valid without an end date" do
+      phase = budget.phases.first
+      phase.ends_at = nil
+      expect(phase).not_to be_valid
+    end
+
     describe "kind validations" do
       it "is not valid without a kind" do
         expect(build(:budget_phase, kind: nil)).not_to be_valid
@@ -31,12 +43,6 @@ describe Budget::Phase do
     describe "#dates_range_valid?" do
       it "is valid when start & end dates are different & consecutive" do
         informing_phase.assign_attributes(starts_at: Date.current, ends_at: Date.tomorrow)
-
-        expect(informing_phase).to be_valid
-      end
-
-      it "is valid when dates are blank" do
-        informing_phase.assign_attributes(starts_at: "", ends_at: "")
 
         expect(informing_phase).to be_valid
       end
