@@ -26,12 +26,6 @@
         description: @proposal.summary,
         mobile: @proposal.title %>
 
-        <div class="small-12 medium-6 margin">
-          <%= link_to t("proposals.proposal.share.view_proposal"), proposal_path(@proposal),
-                      class: "button expanded" %>
-        </div>
-      <% end %>
-
       <div class="small margin-bottom">
         <%= link_to t("proposals.proposal.share.view_proposal"), proposal_path(@proposal) %>
       </div>

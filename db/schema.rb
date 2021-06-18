@@ -368,7 +368,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_100648) do
     t.text "description_publishing_prices"
     t.text "description_informing"
     t.string "voting_style", default: "knapsack"
-    t.boolean "published"
+    t.boolean "published", default: true
     t.string "main_button_text"
     t.string "main_button_url"
     t.boolean "hide_money", default: false

@@ -1,5 +1,5 @@
 class Budgets::BudgetComponent < ApplicationComponent
-  delegate :wysiwyg, :auto_link_already_sanitized_html, :render_map, to: :helpers
+  delegate :current_user, :wysiwyg, :auto_link_already_sanitized_html, :render_map, to: :helpers
   attr_reader :budget
 
   def initialize(budget)

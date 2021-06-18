@@ -101,44 +101,5 @@ describe "Admin budget phases" do
       expect(budget.published_phases.first.enabled).to be(true)
       expect(budget.published_phases.last.enabled).to be(true)
     end
-
-    scenario "Phase dates can be blank" do
-      phase = budget.published_phases.first
-      visit edit_admin_budget_budget_phase_path(budget, phase)
-
-      fill_in "start_date", with: "01/01/2021".to_date
-      fill_in "end_date", with: ""
-      click_button "Save changes"
-
-      visit edit_admin_budget_path(budget)
-
-      within "#budget_phase_#{phase.id}" do
-        expect(page).to have_content "2021-01-01 00:00 -"
-      end
-
-      visit edit_admin_budget_budget_phase_path(budget, phase)
-
-      fill_in "start_date", with: ""
-      fill_in "end_date", with: "31/01/2021".to_date
-      click_button "Save changes"
-
-      visit edit_admin_budget_path(budget)
-
-      within "#budget_phase_#{phase.id}" do
-        expect(page).to have_content "- 2021-01-30 23:59"
-      end
-
-      visit edit_admin_budget_budget_phase_path(budget, phase)
-
-      fill_in "start_date", with: ""
-      fill_in "end_date", with: ""
-      click_button "Save changes"
-
-      visit edit_admin_budget_path(budget)
-
-      within "#budget_phase_#{phase.id}" do
-        expect(page).to have_content "Dates are blank"
-      end
-    end
   end
 end

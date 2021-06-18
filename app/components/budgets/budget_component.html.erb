@@ -14,7 +14,11 @@
       </div>
 
       <% if budget.main_button_text.present? && budget.main_button_url.present? %>
-        <%= link_to budget.main_button_text, budget.main_button_url, class: "button large" %>
+        <% if current_user %>
+          <%= link_to budget.main_button_text, budget.main_button_url, class: "button large" %>
+        <% else %>
+          <%= link_to budget.main_button_text, new_user_registration_path, class: "button large" %>
+        <% end %>
       <% end %>
 
       <p>

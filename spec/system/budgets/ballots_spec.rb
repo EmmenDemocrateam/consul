@@ -437,6 +437,7 @@ describe "Ballots" do
 
   describe "Back link" do
     scenario "after adding and removing an investment from the ballot" do
+      skip "Check ballot button removed in custom content"
       create(:budget_investment, :selected, heading: new_york, price: 10, title: "Sully monument")
 
       login_as(user)
@@ -461,6 +462,7 @@ describe "Ballots" do
     end
 
     scenario "before adding any investments" do
+      skip "Check ballot button removed in custom content"
       login_as(user)
       visit budget_investments_path(budget, heading_id: new_york.id)
 

@@ -1703,6 +1703,7 @@ describe "Budget Investments" do
     end
 
     scenario "create budget investment with sdg related list" do
+      skip "Disable tags on investments"
       login_as(author)
       visit new_budget_investment_path(budget)
       fill_in "Title", with: "A title for a budget investment related with SDG related content"
@@ -1715,6 +1716,7 @@ describe "Budget Investments" do
     end
 
     scenario "edit budget investment with sdg related list" do
+      skip "Disable tags on investments"
       investment = create(:budget_investment, heading: heading, author: author)
       investment.sdg_goals = [SDG::Goal[1], SDG::Goal[2]]
       login_as(author)

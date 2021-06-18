@@ -352,14 +352,14 @@ describe "Budgets" do
 
     visit budgets_path(budget)
 
-    within("#budget_heading") do
+    within(".budget-header") do
       expect(page).to have_link("Create a project!", href: new_user_registration_path)
     end
 
     login_as(user)
     visit budgets_path(budget)
 
-    within("#budget_heading") do
+    within(".budget-header") do
       expect(page).to have_link("Create a project!", href: "https://consulproject.org")
     end
   end

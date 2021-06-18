@@ -435,12 +435,7 @@ describe "Proposals" do
     expect(page).to have_content "Proposal created successfully."
     click_link "Not now, go to my proposal"
 
-    click_link "Dashboard"
-    click_link "Edit my proposal"
-
-    within_window(window_opened_by { click_link "Edit proposal" }) do
-      expect(page).to have_field "Full name of the person submitting the proposal", with: "Isabel Garcia"
-    end
+    expect(Proposal.last.responsible_name).to eq("Isabel Garcia")
   end
 
   scenario "Responsible name field is not shown for verified users" do
@@ -603,15 +598,15 @@ describe "Proposals" do
       #   click_link "Edit my proposal"
       # end
 
-      within_window(window_opened_by { click_link "Retire proposal" }) do
-        expect(page).to have_current_path(retire_form_proposal_path(proposal))
+      click_link "Retire proposal"
 
-        select "Duplicated", from: "proposal_retired_reason"
-        fill_in "Explanation", with: "There are three other better proposals with the same subject"
-        click_button "Retire proposal"
+      expect(page).to have_current_path(retire_form_proposal_path(proposal))
 
-        expect(page).to have_content "Proposal retired"
-      end
+      select "Duplicated", from: "proposal_retired_reason"
+      fill_in "Explanation", with: "There are three other better proposals with the same subject"
+      click_button "Retire proposal"
+
+      expect(page).to have_content "Proposal retired"
 
       visit proposal_path(proposal)
 
@@ -1643,7 +1638,7 @@ describe "Successful proposals" do
 
       visit proposals_path
 
-      within(".header-index-proposals aside") do
+      within(".header-index-proposals") do
         click_link "Create a proposal"
       end
 
@@ -1678,6 +1673,7 @@ describe "Successful proposals" do
       click_sdg_goal(1)
 
       click_button "Create proposal"
+      click_link "Not now, go to my proposal"
 
       within(".sdg-goal-tag-list") { expect(page).to have_link "1. No Poverty" }
     end

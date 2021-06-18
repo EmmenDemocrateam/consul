@@ -219,12 +219,10 @@ describe "Polls" do
       visit poll_path(poll)
       expect(page).to have_content(poll.name)
       expect(page).to have_content(poll.summary)
+      expect(page).to have_content(poll.description)
 
       expect(page).to have_content("Question 1 #{proposal_question.title}", normalize_ws: true)
       expect(page).to have_content("Question 2 #{normal_question.title}", normalize_ws: true)
-
-      find("#poll_description_more_info").click
-      expect(page).to have_content(poll.description)
     end
 
     scenario "Do not show question number in polls with one question" do
@@ -621,8 +619,9 @@ describe "Polls" do
       expect(page).to have_content("You do not have permission to carry out the action 'stats' on poll.")
     end
 
-    scenario "Do not show poll results or stats to admins if disabled", :admin do
-      poll = create(:poll, :expired, results_enabled: false, stats_enabled: false)
+    scenario "Only show poll results or stats to admins if expired", :admin do
+      poll = create(:poll, :current, results_enabled: false, stats_enabled: false)
+      poll_expired = create(:poll, :expired, results_enabled: false, stats_enabled: false)
 
       visit poll_path(poll)
 
